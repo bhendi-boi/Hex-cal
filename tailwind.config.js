@@ -17,6 +17,9 @@ module.exports = {
         brandColor: "#030712",
         highlight: "rgb(60,64,67,.3)",
       },
+      gap: {
+        0.5: "0.125rem",
+      },
     },
   },
   plugins: [],

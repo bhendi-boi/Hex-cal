@@ -20,6 +20,10 @@ export default function ChooseBase({ label, state, setState }: Props) {
           <RadioGroup.Option value="bin">
             {({ checked }) => (
               <motion.span
+                initial={{
+                  backgroundColor: "#ffffff",
+                  color: "#111827",
+                }}
                 animate={{
                   backgroundColor: checked ? "rgb(37 99 235)" : "#ffffff",
                   color: checked ? "#ffffff" : "#111827",
@@ -33,6 +37,10 @@ export default function ChooseBase({ label, state, setState }: Props) {
           <RadioGroup.Option value="oct">
             {({ checked }) => (
               <motion.span
+                initial={{
+                  backgroundColor: "#ffffff",
+                  color: "#111827",
+                }}
                 animate={{
                   backgroundColor: checked ? "rgb(37 99 235)" : "#ffffff",
                   color: checked ? "#ffffff" : "#111827",
@@ -46,6 +54,10 @@ export default function ChooseBase({ label, state, setState }: Props) {
           <RadioGroup.Option value="dec">
             {({ checked }) => (
               <motion.span
+                initial={{
+                  backgroundColor: "#ffffff",
+                  color: "#111827",
+                }}
                 animate={{
                   backgroundColor: checked ? "rgb(37 99 235)" : "#ffffff",
                   color: checked ? "#ffffff" : "#111827",
@@ -59,6 +71,10 @@ export default function ChooseBase({ label, state, setState }: Props) {
           <RadioGroup.Option value="hex">
             {({ checked }) => (
               <motion.span
+                initial={{
+                  backgroundColor: "#ffffff",
+                  color: "#111827",
+                }}
                 animate={{
                   backgroundColor: checked ? "rgb(37 99 235)" : "#ffffff",
                   color: checked ? "#ffffff" : "#111827",

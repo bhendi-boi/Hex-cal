@@ -1,19 +1,31 @@
 "use client";
 import { useState, ChangeEvent, FormEvent } from "react";
-
 import ChooseBase from "../ChooseBase";
 import Input from "../Input";
-import { Bases } from "@/types";
+import { Bases, InputModeTypes } from "@/types";
+import { generateRegex } from "@/lib/generteRegex";
+import { converter } from "@/lib/converter";
 
 const Form = () => {
   const [from, setFrom] = useState<Bases>("bin");
   const [to, setTo] = useState<Bases>("dec");
-  const [number, setNumber] = useState<number | undefined>(undefined);
-  const [result, setResult] = useState<number | undefined>(undefined);
-  function handleChange(e: ChangeEvent<HTMLInputElement>) {}
+  const [number, setNumber] = useState<string>("");
+  const [result, setResult] = useState<string>("");
+
+  const { pattern, inputMode } = generateRegex(from);
+
+  // event handlers
+  function handleChange(e: ChangeEvent<HTMLInputElement>) {
+    let value = e.target.value;
+    value.replace(/[^0-9]/g, "");
+    setNumber(value);
+  }
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const res = converter({ from, to, number });
+    setResult(res);
   }
+
   return (
     <form onSubmit={(e) => handleSubmit(e)} className="px-2">
       <ChooseBase
@@ -29,7 +41,9 @@ const Form = () => {
           id="number"
           name="number"
           required
-          type="number"
+          type="text"
+          pattern={pattern}
+          inputMode={inputMode as InputModeTypes}
           placeholder="Enter number here ..."
           value={number}
           onChange={(e) => handleChange(e)}
@@ -41,7 +55,12 @@ const Form = () => {
       >
         Convert
       </button>
-      {result && <p>{result}</p>}
+      {result !== undefined && (
+        <div>
+          <h2 className="text-xl font-medium">Result</h2>
+          <p className="text-gray-950">{result}</p>
+        </div>
+      )}
     </form>
   );
 };

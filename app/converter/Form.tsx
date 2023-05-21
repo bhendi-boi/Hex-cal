@@ -3,7 +3,7 @@ import { useState, ChangeEvent, FormEvent } from "react";
 import ChooseBase from "../ChooseBase";
 import Input from "../Input";
 import { Bases, InputModeTypes } from "@/types";
-import { generateRegex } from "@/lib/generteRegex";
+import { generateRegex } from "@/lib/generateRegex";
 import { converter } from "@/lib/converter";
 
 const Form = () => {
@@ -14,11 +14,24 @@ const Form = () => {
 
   const { pattern, inputMode } = generateRegex(from);
 
+  const parser = (input: string) => {
+    if (from === "bin") {
+      return input.replace(/[^01]/g, "");
+    }
+    if (from === "oct") {
+      return input.replace(/[^0-7]/g, "");
+    }
+    if (from === "dec") {
+      return input.replace(/[^0-9]/g, "");
+    }
+    if (from === "hex") {
+      return input.replace(/[^0-9A-Fa-f]/g, "");
+    }
+  };
   // event handlers
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
-    let value = e.target.value;
-    value.replace(/[^0-9]/g, "");
-    setNumber(value);
+    const parsedValue = parser(e.target.value) as string;
+    setNumber(parsedValue);
   }
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();

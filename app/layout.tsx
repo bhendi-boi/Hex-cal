@@ -1,13 +1,13 @@
+import { Inter } from "next/font/google";
 import Header from "./Header";
 import "./globals.css";
-import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Hex Cal",
   description:
-    "A calculator specificaly designed to help with doing arthematic with hex numbers.",
+    "A calculator specifically designed for doing arithmetic with hex numbers.",
 };
 
 export default function RootLayout({

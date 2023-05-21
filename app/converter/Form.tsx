@@ -5,6 +5,7 @@ import Input from "../Input";
 import { Bases, InputModeTypes } from "@/types";
 import { generateRegex } from "@/lib/generateRegex";
 import { converter } from "@/lib/converter";
+import Button from "../Button";
 
 const Form = () => {
   const [from, setFrom] = useState<Bases>("bin");
@@ -62,12 +63,13 @@ const Form = () => {
           onChange={(e) => handleChange(e)}
         />
       </div>
-      <button
+      <Button
+        variant="converter"
         type="submit"
         className="w-full py-3 my-4 font-medium text-white bg-green-600 rounded-md"
       >
         Convert
-      </button>
+      </Button>
       {result !== undefined && (
         <div>
           <h2 className="text-xl font-medium">Result</h2>

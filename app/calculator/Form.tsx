@@ -4,17 +4,23 @@ import ChooseOperation from "./ChooseOperation";
 import ChooseBase from "../ChooseBase";
 import Input from "../Input";
 import Button from "../Button";
+import { generateRegex } from "@/lib/generateRegex";
 import { converter } from "@/lib/converter";
-import { Bases, Operations } from "@/types";
 import { reducer } from "@/lib/reducer";
+import { Bases, InputModeTypes, Operations } from "@/types";
 
 const Form = () => {
   const [operand1, setOperand1] = useState("");
-  const [operand1Base, setOperand1Base] = useState<Bases>("hex");
+  const [operand1Base, setOperand1Base] = useState<Bases>("bin");
   const [operand2, setOperand2] = useState("");
-  const [operand2Base, setOperand2Base] = useState<Bases>("hex");
+  const [operand2Base, setOperand2Base] = useState<Bases>("bin");
   const [operation, setOperation] = useState<Operations>("div");
   const [result, setResult] = useState("");
+
+  const { pattern: pattern1, inputMode: inputMode1 } =
+    generateRegex(operand1Base);
+  const { pattern: pattern2, inputMode: inputMode2 } =
+    generateRegex(operand2Base);
 
   const parser = (input: string) => {
     if (operand1Base === "bin") {
@@ -58,7 +64,7 @@ const Form = () => {
     <>
       <form onSubmit={handleSubmit}>
         {/* // TODO add a button which can be used to collapse and show ChooseBase */}
-        <div className="px-2">
+        <div className="px-2 pb-4">
           <label htmlFor="operand1">Operand 1</label>
           <ChooseBase
             label="Choose base for operand1"
@@ -69,6 +75,9 @@ const Form = () => {
             type="text"
             id="operand1"
             name="operand1"
+            pattern={pattern1}
+            inputMode={inputMode1 as InputModeTypes}
+            placeholder="Operand 1 goes here ..."
             value={operand1}
             onChange={handleChange}
           />
@@ -78,7 +87,7 @@ const Form = () => {
           state={operation}
           setState={setOperation}
         />
-        <div className="px-2">
+        <div className="px-2 pt-4">
           <label htmlFor="operand2">Operand 2</label>
           <ChooseBase
             label="Choose base for operand2"
@@ -89,6 +98,9 @@ const Form = () => {
             type="text"
             id="operand2"
             name="operand2"
+            pattern={pattern2}
+            inputMode={inputMode2 as InputModeTypes}
+            placeholder="Operand2 goes here ..."
             value={operand2}
             onChange={handleChange}
           />

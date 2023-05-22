@@ -17,6 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" type="image/x-icon" href="/icon.svg" />
+      </head>
       <body className={inter.className}>
         <Header />
         <main className="min-h-screen p-6 bg-background">{children}</main>

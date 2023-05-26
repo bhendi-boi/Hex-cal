@@ -6,6 +6,7 @@ import {
   Bars2Icon,
   CalculatorIcon,
   ArrowsUpDownIcon,
+  Cog6ToothIcon,
 } from "@heroicons/react/24/outline";
 import clsx from "clsx";
 
@@ -53,6 +54,20 @@ const NavBar = () => {
               >
                 <ArrowsUpDownIcon className="w-6 h-6 mr-4 rotate-90" />
                 Converter
+              </Link>
+            )}
+          </Menu.Item>
+          <Menu.Item>
+            {({ active }) => (
+              <Link
+                href="/settings"
+                className={clsx(
+                  "flex items-center px-6 py-3 text-gray-600",
+                  active && "bg-blue-500 text-white"
+                )}
+              >
+                <Cog6ToothIcon className="w-6 h-6 mr-4 rotate-90" />
+                Settings
               </Link>
             )}
           </Menu.Item>

@@ -16,6 +16,7 @@ module.exports = {
         background: "#f3f4f6",
         brandColor: "#030712",
         highlight: "rgb(60,64,67,.3)",
+        disabled: "#e5e7eb",
       },
       gap: {
         0.5: "0.125rem",

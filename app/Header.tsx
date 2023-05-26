@@ -9,7 +9,7 @@ import NavBar from "./NavBar";
 const Header = () => {
   const pathname = usePathname();
   return (
-    <header className="sticky top-0 flex items-center justify-between h-16 px-4 bg-white">
+    <header className="sticky top-0 flex items-center justify-between h-16 px-4 bg-white z-50">
       {/* added mx-2 to compensate p-2 class on button */}
       {pathname !== "/" ? (
         <Link href="/" className="mx-2 flex items-center gap-0.5 text-gray-950">

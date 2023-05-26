@@ -1,5 +1,6 @@
 "use client";
 import { Switch } from "@headlessui/react";
+import clsx from "clsx";
 type Props = {
   enabled: boolean;
   setEnabled: React.Dispatch<React.SetStateAction<boolean>>;
@@ -11,9 +12,11 @@ const MySwitch = ({ enabled = false, setEnabled, srText }: Props) => {
     <Switch
       checked={enabled}
       onChange={setEnabled}
-      className={`${
-        enabled ? "bg-blue-600" : "bg-gray-200"
-      } relative inline-flex h-6 w-11 items-center rounded-full`}
+      className={clsx(
+        "relative inline-flex h-6 w-11 items-center rounded-full z-0",
+        enabled && "bg-blue-600",
+        !enabled && "bg-gray-200"
+      )}
     >
       <span className="sr-only">{srText}</span>
       <span

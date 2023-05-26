@@ -1,0 +1,56 @@
+{
+  "short_name": "Hex Cal",
+  "name": "Hex Cal: Calculator for hexadecimal numbers",
+  "background_color": "#f3f4f6",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/",
+  "theme_color": "#f3f4f6",
+  "shortcuts": [
+    {
+      "name": "Divide 2 hexadecimal numbers ?",
+      "short_name": "Calculator",
+      "description": "Do basic hexadecimal arithmetic with ease",
+      "url": "/calculator",
+      "icons": [
+        { "src": "/manifest-icon-192.maskable.png", "sizes": "192x192" }
+      ]
+    },
+    {
+      "name": "What is ffc in decimal ?",
+      "short_name": "Converter",
+      "description": "Convert numbers between binary, octal, hexadecimal, and decimal bases with ease",
+      "url": "/converter",
+      "icons": [
+        { "src": "/manifest-icon-192.maskable.png", "sizes": "192x192" }
+      ]
+    }
+  ],
+  "description": "A calculator specifically designed for doing arithmetic with hex numbers.",
+  "icons": [
+    {
+      "src": "/manifest-icon-192.maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/manifest-icon-192.maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/manifest-icon-512.maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/manifest-icon-512.maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

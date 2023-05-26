@@ -17,7 +17,7 @@ export type UserSettings = {
   // converter
   defaultFromBase: Bases;
   defaultToBase: Bases;
-  showCopyToClipBoard: boolean;
+  showCopyToClipboard: boolean;
   // ? experimental
   allowNegativeNumbers: boolean;
 };

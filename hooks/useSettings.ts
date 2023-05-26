@@ -5,7 +5,7 @@ import { UserSettings } from "@/types";
 const DEFAULT_SETTINGS: UserSettings = {
   defaultFromBase: "hex",
   defaultToBase: "dec",
-  showCopyToClipBoard: true,
+  showCopyToClipboard: true,
   allowNegativeNumbers: false,
 };
 
@@ -19,9 +19,9 @@ export function useSettings() {
     window.localStorage.setItem("settings", JSON.stringify(settings));
   }, [settings]);
 
-  function updateSettings(key: any, newValue: any) {
+  function updateSettings(newValue: UserSettings) {
     setSettings((prev) => {
-      return { ...prev, key: newValue };
+      return { ...newValue };
     });
   }
 

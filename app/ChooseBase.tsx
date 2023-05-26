@@ -20,7 +20,7 @@ export default function ChooseBase({
 }: Props) {
   return (
     <RadioGroup className="mb-4" value={state} onChange={setState}>
-      <RadioGroup.Label className="px-2">{label}</RadioGroup.Label>
+      <RadioGroup.Label className="">{label}</RadioGroup.Label>
       <div className="h-16 overflow-hidden">
         <div className="flex h-20 gap-4 py-3 pb-4 my-4 overflow-x-auto">
           <RadioGroup.Option disabled={otherState === "bin"} value="bin">

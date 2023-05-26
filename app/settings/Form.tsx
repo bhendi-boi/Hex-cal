@@ -58,13 +58,15 @@ const Form = () => {
         <fieldset className="">
           <StyledLegend>Converter</StyledLegend>
           <ChooseBase
-            state={defaultFrom}
             label="Choose default base from which you want to convert a number"
+            state={defaultFrom}
+            otherState={defaultTo}
             setState={setDefaultFrom}
           />
           <ChooseBase
-            state={defaultTo}
             label="Choose default base from which you want to convert a number"
+            state={defaultTo}
+            otherState={defaultFrom}
             setState={setDefaultTo}
           />
         </fieldset>

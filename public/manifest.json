@@ -8,7 +8,7 @@
   "theme_color": "#f3f4f6",
   "shortcuts": [
     {
-      "name": "Divide 2 hexadecimal numbers ?",
+      "name": "Calculator",
       "short_name": "Calculator",
       "description": "Do basic hexadecimal arithmetic with ease",
       "url": "/calculator",
@@ -17,7 +17,7 @@
       ]
     },
     {
-      "name": "What is ffc in decimal ?",
+      "name": "Converter",
       "short_name": "Converter",
       "description": "Convert numbers between binary, octal, hexadecimal, and decimal bases with ease",
       "url": "/converter",

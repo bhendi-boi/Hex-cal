@@ -1,3 +1,4 @@
+"use client";
 import { useState, useEffect } from "react";
 import { UserSettings } from "@/types";
 
@@ -12,7 +13,7 @@ export function useSettings() {
   const [settings, setSettings] = useState<UserSettings>(getStoredSettings);
 
   useEffect(() => {
-    if (!window) {
+    if (typeof window === "undefined") {
       return;
     }
     window.localStorage.setItem("settings", JSON.stringify(settings));
@@ -25,7 +26,7 @@ export function useSettings() {
   }
 
   function getStoredSettings() {
-    if (!window) {
+    if (typeof window === "undefined") {
       return DEFAULT_SETTINGS;
     }
     const storedSettings = JSON.parse(

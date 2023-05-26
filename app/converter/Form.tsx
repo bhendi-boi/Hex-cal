@@ -1,15 +1,17 @@
 "use client";
 import { useState, ChangeEvent, FormEvent } from "react";
-import ChooseBase from "../ChooseBase";
 import Input from "../Input";
-import { Bases, InputModeTypes } from "@/types";
+import Button from "../Button";
+import ChooseBase from "../ChooseBase";
+import { useSettings } from "@/hooks/useSettings";
 import { generateRegex } from "@/lib/generateRegex";
 import { converter } from "@/lib/converter";
-import Button from "../Button";
+import { Bases, InputModeTypes } from "@/types";
 
 const Form = () => {
-  const [from, setFrom] = useState<Bases>("bin");
-  const [to, setTo] = useState<Bases>("dec");
+  const [settings] = useSettings();
+  const [from, setFrom] = useState<Bases>(settings.defaultFromBase);
+  const [to, setTo] = useState<Bases>(settings.defaultToBase);
   const [number, setNumber] = useState<string>("");
   const [result, setResult] = useState<string>("");
 

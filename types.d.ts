@@ -12,3 +12,12 @@ export type InputModeTypes =
   | "none"
   | "decimal"
   | undefined;
+
+export type UserSettings = {
+  // converter
+  defaultFromBase: Bases;
+  defaultToBase: Bases;
+  showCopyToClipBoard: boolean;
+  // ? experimental
+  allowNegativeNumbers: boolean;
+};

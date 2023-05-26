@@ -1,9 +1,8 @@
 "use client";
 import React, { ComponentProps, FormEvent, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { Dialog } from "@headlessui/react";
 import Switch from "../Switch";
 import Button from "../Button";
+import Toast from "../Toast";
 import ChooseBase from "../ChooseBase";
 import { useSettings } from "@/hooks/useSettings";
 import { Bases } from "@/types";
@@ -74,31 +73,11 @@ const Form = () => {
           Save Changes
         </Button>
       </form>
-      <Dialog
-        className="bg-white relative z-50 rounded-lg"
-        open={showStatus}
-        onClose={() => setShowStatus(false)}
-      >
-        <AnimatePresence>
-          <motion.div
-            className="fixed inset-0 bg-black/30"
-            aria-hidden="true"
-          />
-          <motion.div
-            initial={{
-              top: "100%",
-            }}
-            animate={{ top: "75%" }}
-            className="fixed top-3/4 w-full"
-          >
-            <Dialog.Panel className="mx-auto bg-white max-w-xs p-4 rounded-lg">
-              <Dialog.Title className="mx-auto text-center font-medium text-lg">
-                Changes saved successfully 🥳
-              </Dialog.Title>
-            </Dialog.Panel>
-          </motion.div>
-        </AnimatePresence>
-      </Dialog>
+      <Toast
+        state={showStatus}
+        setState={setShowStatus}
+        message="Changes saved successfully 🥳"
+      />
     </>
   );
 };

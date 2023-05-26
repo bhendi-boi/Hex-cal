@@ -6,7 +6,7 @@ type Props = {
   srText: string;
 };
 
-const MySwitch = ({ enabled, setEnabled, srText }: Props) => {
+const MySwitch = ({ enabled = false, setEnabled, srText }: Props) => {
   return (
     <Switch
       checked={enabled}

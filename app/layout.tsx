@@ -19,6 +19,9 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" type="image/x-icon" href="/icon.svg" />
+        <link rel="apple-touch-icon" href="apple-icon-180.png" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <link rel="manifest" href="/manifest.json" />
       </head>
       <body className={inter.className}>
         <Header />

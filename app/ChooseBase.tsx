@@ -6,6 +6,7 @@ import clsx from "clsx";
 import { Bases } from "@/types";
 
 type Props = {
+  settings?: boolean;
   label: string;
   state: Bases;
   otherState?: Bases;
@@ -13,6 +14,7 @@ type Props = {
 };
 
 export default function ChooseBase({
+  settings = false,
   label,
   state,
   otherState,
@@ -20,7 +22,7 @@ export default function ChooseBase({
 }: Props) {
   return (
     <RadioGroup className="my-4" value={state} onChange={setState}>
-      <RadioGroup.Label className="text-xl font-medium">
+      <RadioGroup.Label className={clsx(!settings && "text-xl font-medium")}>
         {label}
       </RadioGroup.Label>
       <div className="h-16 overflow-hidden">

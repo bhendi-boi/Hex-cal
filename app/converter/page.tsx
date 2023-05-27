@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Form from "./Form";
+import InnerHeader from "../InnerHeader";
 
 export const metadata: Metadata = {
   title: "Converter | Hex Cal",
@@ -17,9 +18,7 @@ export const metadata: Metadata = {
 const page = () => {
   return (
     <>
-      <header className="">
-        <h1 className="px-2 text-3xl font-medium text-gray-950">Converter</h1>
-      </header>
+      <InnerHeader title="Converter" />
       <Form />
     </>
   );

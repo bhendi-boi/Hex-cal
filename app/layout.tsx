@@ -1,13 +1,21 @@
+import { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Header from "./Header";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Hex Cal",
   description:
     "A calculator specifically designed for doing arithmetic with hex numbers.",
+  openGraph: {
+    title: "Hex cal",
+    description:
+      "A calculator specifically designed for doing arithmetic with hex numbers.",
+    type: "website",
+    url: "https://hex-cal.vercel.app/",
+  },
 };
 
 export default function RootLayout({

@@ -22,7 +22,7 @@ export default function ChooseBase({
     <RadioGroup className="mb-4" value={state} onChange={setState}>
       <RadioGroup.Label className="">{label}</RadioGroup.Label>
       <div className="h-16 overflow-hidden">
-        <div className="flex h-20 sm:gap-4 justify-between sm:justify-start py-3 pb-4 my-4 overflow-x-auto">
+        <div className="flex h-20 gap-1 sm:gap-4 justify-between sm:justify-start py-3 pb-4 my-4 overflow-x-auto">
           <RadioGroup.Option disabled={otherState === "bin"} value="bin">
             {({ checked, disabled }) => (
               <StyledSpan checked={checked} disabled={disabled}>
@@ -69,16 +69,17 @@ function StyledSpan({
   return (
     <motion.span
       initial={{
-        backgroundColor: "#ffffff",
-        color: "#111827",
+        backgroundColor: "#e5e7eb",
+        color: "#6b7280",
       }}
       animate={{
-        backgroundColor: disabled
-          ? "#e5e7eb"
-          : checked
-          ? "rgb(37 99 235)"
-          : "#ffffff",
-        color: disabled ? "#111827" : checked ? "#ffffff" : "#111827",
+        backgroundColor: disabled ? "#e5e7eb" : checked ? "#2563eb" : "#f9fafb",
+        color: disabled ? "#6b7280" : checked ? "#f9fafb" : "#111827",
+      }}
+      transition={{
+        type: "tween",
+        duration: 0.25,
+        ease: "anticipate",
       }}
       className={clsx(
         "px-6 py-3 rounded-full cursor-pointer",

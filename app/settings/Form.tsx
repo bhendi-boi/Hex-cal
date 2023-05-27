@@ -34,10 +34,10 @@ const Form = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="px-2 py-4 space-y-4">
-        <fieldset>
+      <form onSubmit={handleSubmit} className="py-4 space-y-4">
+        <fieldset className="px-2">
           <StyledLegend>All</StyledLegend>
-          <div className="flex items-center justify-between mb-2">
+          <div className="flex items-center justify-between gap-1 mb-2">
             <p>Show copy to clipboard</p>
             <Switch
               srText="Show Copy to clipboard"
@@ -45,7 +45,7 @@ const Form = () => {
               setEnabled={setShowCopyToClipboard}
             />
           </div>
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between gap-1">
             <p>Allow the use of negative numbers</p>
             <Switch
               srText="Allow negative numbers"
@@ -54,15 +54,17 @@ const Form = () => {
             />
           </div>
         </fieldset>
-        <fieldset className="">
+        <fieldset className="px-2">
           <StyledLegend>Converter</StyledLegend>
           <ChooseBase
+            settings
             label="Choose default base from which you want to convert a number"
             state={defaultFrom}
             otherState={defaultTo}
             setState={setDefaultFrom}
           />
           <ChooseBase
+            settings
             label="Choose default base from which you want to convert a number"
             state={defaultTo}
             otherState={defaultFrom}

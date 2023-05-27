@@ -13,7 +13,7 @@ const MySwitch = ({ enabled = false, setEnabled, srText }: Props) => {
       checked={enabled}
       onChange={setEnabled}
       className={clsx(
-        "relative inline-flex h-6 w-11 items-center rounded-full z-0",
+        "relative shrink-0 inline-flex h-6 w-11 items-center rounded-full z-0",
         enabled && "bg-blue-600",
         !enabled && "bg-gray-200"
       )}

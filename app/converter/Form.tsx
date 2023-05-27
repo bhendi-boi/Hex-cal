@@ -63,7 +63,9 @@ const Form = () => {
         />
         <ChooseBase label="To" state={to} setState={setTo} otherState={from} />
         <div className="flex flex-col gap-2">
-          <label htmlFor="number">Number</label>
+          <label htmlFor="number" className="text-xl font-medium">
+            Number
+          </label>
           <Input
             id="number"
             name="number"
@@ -79,7 +81,7 @@ const Form = () => {
         <Button
           variant="converter"
           type="submit"
-          className="w-full py-3 my-4 font-medium text-white bg-green-600 rounded-md"
+          className="w-full py-3 my-4 text-2xl font-medium text-white bg-green-600 rounded-md"
         >
           Convert
         </Button>

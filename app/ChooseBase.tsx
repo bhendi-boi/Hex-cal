@@ -19,8 +19,10 @@ export default function ChooseBase({
   setState,
 }: Props) {
   return (
-    <RadioGroup className="mb-4" value={state} onChange={setState}>
-      <RadioGroup.Label className="">{label}</RadioGroup.Label>
+    <RadioGroup className="my-4" value={state} onChange={setState}>
+      <RadioGroup.Label className="text-xl font-medium">
+        {label}
+      </RadioGroup.Label>
       <div className="h-16 overflow-hidden">
         <div className="flex h-20 gap-1 sm:gap-4 justify-between sm:justify-start py-3 pb-4 my-4 overflow-x-auto">
           <RadioGroup.Option disabled={otherState === "bin"} value="bin">

@@ -23,7 +23,10 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <link rel="manifest" href="/manifest.json" />
       </head>
-      <body className={inter.className}>
+      <body
+        style={{ WebkitTapHighlightColor: "transparent" }}
+        className={inter.className}
+      >
         <Header />
         <main className="min-h-screen p-6 bg-background">{children}</main>
       </body>

@@ -37,7 +37,7 @@ const Form = () => {
       <form onSubmit={handleSubmit} className="py-4 space-y-4">
         <fieldset className="px-2">
           <StyledLegend>All</StyledLegend>
-          <div className="flex items-center justify-between gap-1 mb-2">
+          <div className="flex items-center justify-between gap-1 my-2">
             <p>Show copy to clipboard</p>
             <Switch
               srText="Show Copy to clipboard"
@@ -65,7 +65,7 @@ const Form = () => {
           />
           <ChooseBase
             settings
-            label="Choose default base from which you want to convert a number"
+            label="Choose default base to which you want to convert a number"
             state={defaultTo}
             otherState={defaultFrom}
             setState={setDefaultTo}

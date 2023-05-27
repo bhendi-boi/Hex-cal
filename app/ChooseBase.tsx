@@ -21,12 +21,16 @@ export default function ChooseBase({
   setState,
 }: Props) {
   return (
-    <RadioGroup className="my-4" value={state} onChange={setState}>
+    <RadioGroup
+      className={clsx(!settings && "my-4", settings && "my-2")}
+      value={state}
+      onChange={setState}
+    >
       <RadioGroup.Label className={clsx(!settings && "text-xl font-medium")}>
         {label}
       </RadioGroup.Label>
       <div className="h-16 overflow-hidden">
-        <div className="flex h-20 gap-1 sm:gap-4 justify-between sm:justify-start py-3 pb-4 my-4 overflow-x-auto">
+        <div className="flex justify-between h-20 gap-1 py-3 pb-4 my-4 overflow-x-auto sm:gap-4 sm:justify-start">
           <RadioGroup.Option disabled={otherState === "bin"} value="bin">
             {({ checked, disabled }) => (
               <StyledSpan checked={checked} disabled={disabled}>

@@ -13,13 +13,8 @@ import clsx from "clsx";
 const NavBar = () => {
   return (
     <Menu as="div" className="relative">
-      <Menu.Button className="relative p-2 overflow-hidden rounded-full group isolate">
-        {/* // !TODO add correct animations for button background  */}
+      <Menu.Button className="relative p-2 overflow-hidden rounded-full hover:bg-gray-100 active:bg-gray-200 isolate">
         <Bars2Icon className="w-6 h-6 text-gray-950" />
-        <span
-          aria-hidden
-          className="absolute inset-0 transition-transform duration-300 ease-in scale-0 bg-highlight -z-10 group-hover:scale-100"
-        />
       </Menu.Button>
       <AnimatePresence>
         <Menu.Items

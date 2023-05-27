@@ -90,14 +90,16 @@ const Form = () => {
             <h2 id="result" className="text-xl font-medium">
               Result
             </h2>
-            <button
-              onClick={handleClick}
-              className="p-2 cursor-pointer hover:bg-gray-100 active:bg-gray-200 rounded-full"
-            >
-              <ClipboardIcon className="w-6 h-6 text-gray-950" />
-            </button>
+            {settings.showCopyToClipboard && (
+              <button
+                onClick={handleClick}
+                className="p-2 cursor-pointer hover:bg-gray-100 active:bg-gray-200 rounded-full"
+              >
+                <ClipboardIcon className="w-6 h-6 text-gray-950" />
+              </button>
+            )}
           </header>
-          <p className="text-gray-950">{result}</p>
+          <p className="text-gray-800">{result}</p>
         </section>
       )}
       <Toast

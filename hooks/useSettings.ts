@@ -7,6 +7,7 @@ const DEFAULT_SETTINGS: UserSettings = {
   defaultToBase: "dec",
   showCopyToClipboard: true,
   allowNegativeNumbers: false,
+  addPrefixToResult: false,
 };
 
 export function useSettings() {

@@ -14,10 +14,13 @@ export type InputModeTypes =
   | undefined;
 
 export type UserSettings = {
+  // all
+  showCopyToClipboard: boolean;
+  addPrefixToResult: boolean;
+  // ? experimental
+  allowNegativeNumbers: boolean;
+
   // converter
   defaultFromBase: Bases;
   defaultToBase: Bases;
-  showCopyToClipboard: boolean;
-  // ? experimental
-  allowNegativeNumbers: boolean;
 };

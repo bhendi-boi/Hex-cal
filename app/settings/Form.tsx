@@ -19,6 +19,9 @@ const Form = () => {
   const [allowNegativeNumbers, setAllowNegativeNumbers] = useState(
     settings.allowNegativeNumbers
   );
+  const [addPrefixToResult, setAddPrefixToResult] = useState(
+    settings.addPrefixToResult
+  );
   const [showStatus, setShowStatus] = useState(false);
 
   function handleSubmit(e: FormEvent) {
@@ -28,6 +31,7 @@ const Form = () => {
       defaultToBase: defaultTo,
       showCopyToClipboard,
       allowNegativeNumbers,
+      addPrefixToResult,
     });
     setShowStatus(true);
   }
@@ -43,6 +47,14 @@ const Form = () => {
               srText="Show Copy to clipboard"
               enabled={showCopyToClipboard}
               setEnabled={setShowCopyToClipboard}
+            />
+          </div>
+          <div className="flex items-center justify-between gap-1 mb-2">
+            <p>Add prefix to result</p>
+            <Switch
+              srText="Allow negative numbers"
+              enabled={addPrefixToResult}
+              setEnabled={setAddPrefixToResult}
             />
           </div>
           <div className="flex items-center justify-between gap-1">

@@ -10,6 +10,7 @@ import { generateRegex } from "@/lib/generateRegex";
 import { converter } from "@/lib/converter";
 import { copyToClipboard } from "@/lib/copyToClipboard";
 import { Bases, InputModeTypes } from "@/types";
+import { addPrefix } from "@/lib/addPrefix";
 
 const Form = () => {
   const [settings] = useSettings();
@@ -49,7 +50,12 @@ const Form = () => {
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const res = converter({ from, to, number });
-    setResult(res);
+    if (settings.addPrefixToResult) {
+      const formattedRes = addPrefix({ result: res, base: to });
+      setResult(formattedRes);
+    } else {
+      setResult(res);
+    }
   }
 
   return (
@@ -95,7 +101,7 @@ const Form = () => {
             {settings.showCopyToClipboard && (
               <button
                 onClick={handleClick}
-                className="p-2 cursor-pointer hover:bg-gray-100 active:bg-gray-200 rounded-full"
+                className="p-2 rounded-full cursor-pointer hover:bg-gray-100 active:bg-gray-200"
               >
                 <ClipboardIcon className="w-6 h-6 text-gray-950" />
               </button>

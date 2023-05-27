@@ -71,7 +71,7 @@ const Form = () => {
             type="text"
             pattern={pattern}
             inputMode={inputMode as InputModeTypes}
-            placeholder="Enter number here ..."
+            placeholder="Number goes here ..."
             value={number}
             onChange={(e) => handleChange(e)}
           />

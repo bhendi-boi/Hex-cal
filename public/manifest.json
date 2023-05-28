@@ -11,7 +11,7 @@
       "name": "Calculator",
       "short_name": "Calculator",
       "description": "Do basic hexadecimal arithmetic with ease",
-      "url": "/settings",
+      "url": "/calculator",
       "icons": [
         { "src": "/manifest-icon-192.maskable.png", "sizes": "192x192" }
       ]
@@ -29,6 +29,7 @@
       "name": "Settings",
       "short_name": "Settings",
       "description": "Customize Hex Cal the way you like.",
+      "url": "/settings",
       "icons": [
         { "src": "/manifest-icon-192.maskable.png", "sizes": "192x192" }
       ]

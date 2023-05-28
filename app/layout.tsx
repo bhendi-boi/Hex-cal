@@ -36,7 +36,9 @@ export default function RootLayout({
         className={inter.className}
       >
         <Header />
-        <main className="min-h-screen p-6 bg-background">{children}</main>
+        <main className="min-h-[calc(100vh-4rem)] p-6 bg-background">
+          {children}
+        </main>
       </body>
     </html>
   );

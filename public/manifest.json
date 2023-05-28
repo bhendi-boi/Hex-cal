@@ -1,6 +1,6 @@
 {
   "short_name": "Hex Cal",
-  "name": "Hex Cal: Calculator for hexadecimal numbers",
+  "name": "Hex Cal",
   "background_color": "#f3f4f6",
   "display": "standalone",
   "start_url": "/",

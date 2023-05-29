@@ -6,9 +6,19 @@ import Toast from "../Toast";
 import ChooseBase from "../ChooseBase";
 import { useSettings } from "@/hooks/useSettings";
 import { Bases } from "@/types";
+import ChooseOperation from "../calculator/ChooseOperation";
 
 const Form = () => {
   const [settings, updateSettings] = useSettings();
+  const [defaultOperand1Base, setDefaultOperand1Base] = useState(
+    settings.defaultOperand1Base
+  );
+  const [defaultOperand2Base, setDefaultOperand2Base] = useState(
+    settings.defaultOperand2Base
+  );
+  const [defaultOperation, setDefaultOperation] = useState(
+    settings.defaultOperation
+  );
   const [defaultFrom, setDefaultFrom] = useState<Bases>(
     settings.defaultFromBase
   );
@@ -27,6 +37,9 @@ const Form = () => {
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
     updateSettings({
+      defaultOperand1Base,
+      defaultOperand2Base,
+      defaultOperation,
       defaultFromBase: defaultFrom,
       defaultToBase: defaultTo,
       showCopyToClipboard,
@@ -66,7 +79,27 @@ const Form = () => {
             />
           </div>
         </fieldset>
-        <fieldset className="px-2">
+        <div className="px-2">
+          <StyledLegend>Calculator</StyledLegend>
+          <ChooseBase
+            settings
+            label="Choose default base for operand1."
+            state={defaultOperand1Base}
+            setState={setDefaultOperand1Base}
+          />
+          <ChooseBase
+            settings
+            label="Choose default base for operand2."
+            state={defaultOperand2Base}
+            setState={setDefaultOperand2Base}
+          />
+          <ChooseOperation
+            label="Choose default operation which you want to perform."
+            state={defaultOperation}
+            setState={setDefaultOperation}
+          />
+        </div>
+        <div className="px-2">
           <StyledLegend>Converter</StyledLegend>
           <ChooseBase
             settings
@@ -82,7 +115,7 @@ const Form = () => {
             otherState={defaultFrom}
             setState={setDefaultTo}
           />
-        </fieldset>
+        </div>
         <Button type="submit" variant="converter">
           Save Changes
         </Button>
@@ -100,8 +133,8 @@ export default Form;
 
 function StyledLegend({ children, ...rest }: ComponentProps<"legend">) {
   return (
-    <legend {...rest} className="text-xl font-medium">
+    <h2 {...rest} className="text-xl font-medium">
       {children}
-    </legend>
+    </h2>
   );
 }

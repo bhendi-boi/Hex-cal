@@ -20,6 +20,11 @@ export type UserSettings = {
   // ? experimental
   allowNegativeNumbers: boolean;
 
+  // calculator
+  defaultOperand1Base: Bases;
+  defaultOperand2Base: Bases;
+  defaultOperation: Operations;
+
   // converter
   defaultFromBase: Bases;
   defaultToBase: Bases;

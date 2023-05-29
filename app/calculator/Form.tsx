@@ -1,21 +1,33 @@
 "use client";
 import React, { useState, ChangeEvent, FormEvent } from "react";
-import ChooseOperation from "./ChooseOperation";
-import ChooseBase from "../ChooseBase";
+import Toast from "../Toast";
 import Input from "../Input";
 import Button from "../Button";
-import { generateRegex } from "@/lib/generateRegex";
+import ChooseBase from "../ChooseBase";
+import ChooseOperation from "./ChooseOperation";
+import { ClipboardIcon } from "@heroicons/react/24/outline";
 import { converter } from "@/lib/converter";
+import { useSettings } from "@/hooks/useSettings";
+import { generateRegex } from "@/lib/generateRegex";
+import { copyToClipboard } from "@/lib/copyToClipboard";
 import { reducer } from "@/lib/reducer";
 import { Bases, InputModeTypes, Operations } from "@/types";
 
 const Form = () => {
+  const [settings] = useSettings();
   const [operand1, setOperand1] = useState("");
-  const [operand1Base, setOperand1Base] = useState<Bases>("bin");
+  const [operand1Base, setOperand1Base] = useState<Bases>(
+    settings.defaultOperand1Base
+  );
   const [operand2, setOperand2] = useState("");
-  const [operand2Base, setOperand2Base] = useState<Bases>("bin");
-  const [operation, setOperation] = useState<Operations>("div");
+  const [operand2Base, setOperand2Base] = useState<Bases>(
+    settings.defaultOperand2Base
+  );
+  const [operation, setOperation] = useState<Operations>(
+    settings.defaultOperation
+  );
   const [result, setResult] = useState("");
+  const [showStatus, setShowStatus] = useState(false);
 
   const { pattern: pattern1, inputMode: inputMode1 } =
     generateRegex(operand1Base);
@@ -45,6 +57,11 @@ const Form = () => {
       setOperand2(parsedValue);
     }
   }
+
+  function handleClick() {
+    copyToClipboard(result);
+    setShowStatus(true);
+  }
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
     const operand1AsDec = converter({
@@ -63,11 +80,9 @@ const Form = () => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        {/* // TODO add a button which can be used to collapse and show ChooseBase */}
         <div className="px-2 pb-4">
-          <label htmlFor="operand1">Operand 1</label>
           <ChooseBase
-            label="Choose base for operand1"
+            label="Operand 1"
             state={operand1Base}
             setState={setOperand1Base}
           />
@@ -88,9 +103,8 @@ const Form = () => {
           setState={setOperation}
         />
         <div className="px-2 pt-4">
-          <label htmlFor="operand2">Operand 2</label>
           <ChooseBase
-            label="Choose base for operand2"
+            label="Operand 2"
             state={operand2Base}
             setState={setOperand2Base}
           />
@@ -107,12 +121,29 @@ const Form = () => {
         </div>
         <Button variant="calculator">Solve</Button>
       </form>
-      {result && (
-        <div>
-          <h2>Result: </h2>
-          <p>{result}</p>
-        </div>
+      {result !== undefined && (
+        <section aria-labelledby="result" className="px-2">
+          <header className="flex items-center justify-between">
+            <h2 id="result" className="text-xl font-medium">
+              Result
+            </h2>
+            {settings.showCopyToClipboard && (
+              <button
+                onClick={handleClick}
+                className="p-2 rounded-full cursor-pointer hover:bg-gray-100 active:bg-gray-200"
+              >
+                <ClipboardIcon className="w-6 h-6 text-gray-950" />
+              </button>
+            )}
+          </header>
+          <p className="text-gray-800">{result}</p>
+        </section>
       )}
+      <Toast
+        state={showStatus}
+        setState={setShowStatus}
+        message="Result copied to clipboard 😉"
+      />
     </>
   );
 };

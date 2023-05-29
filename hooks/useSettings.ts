@@ -8,6 +8,9 @@ const DEFAULT_SETTINGS: UserSettings = {
   showCopyToClipboard: true,
   allowNegativeNumbers: false,
   addPrefixToResult: false,
+  defaultOperand1Base: "hex",
+  defaultOperand2Base: "hex",
+  defaultOperation: "add",
 };
 
 export function useSettings() {

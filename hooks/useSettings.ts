@@ -7,6 +7,7 @@ const DEFAULT_SETTINGS: UserSettings = {
   defaultToBase: "dec",
   showCopyToClipboard: true,
   allowNegativeNumbers: false,
+  showFullText: false,
   addPrefixToResult: false,
   defaultOperand1Base: "hex",
   defaultOperand2Base: "hex",

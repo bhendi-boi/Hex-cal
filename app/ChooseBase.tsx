@@ -4,9 +4,10 @@ import { motion } from "framer-motion";
 import { RadioGroup } from "@headlessui/react";
 import clsx from "clsx";
 import { Bases } from "@/types";
+import { useSettings } from "@/hooks/useSettings";
 
 type Props = {
-  settings?: boolean;
+  isSettings?: boolean;
   label: string;
   state: Bases;
   otherState?: Bases;
@@ -14,19 +15,21 @@ type Props = {
 };
 
 export default function ChooseBase({
-  settings = false,
+  isSettings = false,
   label,
   state,
   otherState,
   setState,
 }: Props) {
+  const [settings, updateSettings] = useSettings();
+
   return (
     <RadioGroup
-      className={clsx(!settings && "my-4", settings && "my-2")}
+      className={clsx(!isSettings && "my-4", isSettings && "my-2")}
       value={state}
       onChange={setState}
     >
-      <RadioGroup.Label className={clsx(!settings && "text-xl font-medium")}>
+      <RadioGroup.Label className={clsx(!isSettings && "text-xl font-medium")}>
         {label}
       </RadioGroup.Label>
       <div className="h-16 overflow-hidden">
@@ -34,28 +37,28 @@ export default function ChooseBase({
           <RadioGroup.Option disabled={otherState === "bin"} value="bin">
             {({ checked, disabled }) => (
               <StyledSpan checked={checked} disabled={disabled}>
-                Bin
+                {settings.showFullText ? "Binary" : "Bin"}
               </StyledSpan>
             )}
           </RadioGroup.Option>
           <RadioGroup.Option disabled={otherState === "oct"} value="oct">
             {({ checked, disabled }) => (
               <StyledSpan checked={checked} disabled={disabled}>
-                Oct
+                {settings.showFullText ? "Octal" : "Oct"}
               </StyledSpan>
             )}
           </RadioGroup.Option>
           <RadioGroup.Option disabled={otherState === "dec"} value="dec">
             {({ checked, disabled }) => (
               <StyledSpan checked={checked} disabled={disabled}>
-                Dec
+                {settings.showFullText ? "Decimal" : "Dec"}
               </StyledSpan>
             )}
           </RadioGroup.Option>
           <RadioGroup.Option disabled={otherState === "hex"} value="hex">
             {({ checked, disabled }) => (
               <StyledSpan checked={checked} disabled={disabled}>
-                Hex
+                {settings.showFullText ? "Hexadecimal" : "Hex"}
               </StyledSpan>
             )}
           </RadioGroup.Option>

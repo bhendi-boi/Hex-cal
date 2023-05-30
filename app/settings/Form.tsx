@@ -29,6 +29,7 @@ const Form = () => {
   const [allowNegativeNumbers, setAllowNegativeNumbers] = useState(
     settings.allowNegativeNumbers
   );
+  const [showFullText, setShowFullText] = useState(settings.showFullText);
   const [addPrefixToResult, setAddPrefixToResult] = useState(
     settings.addPrefixToResult
   );
@@ -40,6 +41,7 @@ const Form = () => {
       defaultOperand1Base,
       defaultOperand2Base,
       defaultOperation,
+      showFullText,
       defaultFromBase: defaultFrom,
       defaultToBase: defaultTo,
       showCopyToClipboard,
@@ -78,17 +80,25 @@ const Form = () => {
               setEnabled={setAllowNegativeNumbers}
             />
           </div>
+          <div className="flex items-center justify-between gap-1">
+            <p>Show full text in while choosing base and operation</p>
+            <Switch
+              srText="Show full text in while choosing base and operation"
+              enabled={showFullText}
+              setEnabled={setShowFullText}
+            />
+          </div>
         </fieldset>
         <div className="px-2">
           <StyledLegend>Calculator</StyledLegend>
           <ChooseBase
-            settings
+            isSettings
             label="Choose default base for operand1."
             state={defaultOperand1Base}
             setState={setDefaultOperand1Base}
           />
           <ChooseBase
-            settings
+            isSettings
             label="Choose default base for operand2."
             state={defaultOperand2Base}
             setState={setDefaultOperand2Base}
@@ -102,14 +112,14 @@ const Form = () => {
         <div className="px-2">
           <StyledLegend>Converter</StyledLegend>
           <ChooseBase
-            settings
+            isSettings
             label="Choose default base from which you want to convert a number"
             state={defaultFrom}
             otherState={defaultTo}
             setState={setDefaultFrom}
           />
           <ChooseBase
-            settings
+            isSettings
             label="Choose default base to which you want to convert a number"
             state={defaultTo}
             otherState={defaultFrom}

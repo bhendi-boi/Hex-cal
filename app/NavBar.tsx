@@ -29,7 +29,7 @@ const NavBar = () => {
               <Link
                 href="/calculator"
                 className={clsx(
-                  "flex items-center px-6 py-3 text-gray-600",
+                  "flex items-center px-8 py-4 text-gray-600",
                   active && "bg-blue-500 text-white"
                 )}
               >
@@ -43,7 +43,7 @@ const NavBar = () => {
               <Link
                 href="/converter"
                 className={clsx(
-                  "flex items-center px-6 py-3 text-gray-600",
+                  "flex items-center px-8 py-4 text-gray-600",
                   active && "bg-blue-500 text-white"
                 )}
               >
@@ -57,11 +57,11 @@ const NavBar = () => {
               <Link
                 href="/settings"
                 className={clsx(
-                  "flex items-center px-6 py-3 text-gray-600",
+                  "flex items-center px-8 py-4 text-gray-600 border border-gray-100",
                   active && "bg-blue-500 text-white"
                 )}
               >
-                <Cog6ToothIcon className="w-6 h-6 mr-4 rotate-90" />
+                <Cog6ToothIcon className="w-6 h-6 mr-4" />
                 Settings
               </Link>
             )}

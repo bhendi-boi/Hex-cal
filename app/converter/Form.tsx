@@ -6,6 +6,7 @@ import Toast from "../Toast";
 import ChooseBase from "../ChooseBase";
 import { ClipboardIcon } from "@heroicons/react/24/outline";
 import { useSettings } from "@/hooks/useSettings";
+import { useHistory } from "@/hooks/useHistory";
 import { generateRegex } from "@/lib/generateRegex";
 import { converter } from "@/lib/converter";
 import { copyToClipboard } from "@/lib/copyToClipboard";
@@ -14,6 +15,8 @@ import { addPrefix } from "@/lib/addPrefix";
 
 const Form = () => {
   const [settings] = useSettings();
+  const [converterHistory, updateConverterHistory] = useHistory();
+
   const [from, setFrom] = useState<Bases>(settings.defaultFromBase);
   const [to, setTo] = useState<Bases>(settings.defaultToBase);
   const [number, setNumber] = useState<string>("");
@@ -56,7 +59,14 @@ const Form = () => {
     } else {
       setResult(res);
     }
+    updateConverterHistory({
+      from,
+      to,
+      number,
+      result: res,
+    });
   }
+  console.log(converterHistory);
 
   return (
     <>

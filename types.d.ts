@@ -30,3 +30,10 @@ export type UserSettings = {
   defaultFromBase: Bases;
   defaultToBase: Bases;
 };
+
+export type ConverterHistoryItem = {
+  from: Bases;
+  to: Bases;
+  number: string;
+  result: string;
+};

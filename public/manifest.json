@@ -30,7 +30,7 @@
       "short_name": "Settings",
       "description": "Customize Hex Cal the way you like.",
       "url": "/settings",
-      "icons": [{ "src": "/settings.svg", "sizes": "150x150" }]
+      "icons": [{ "src": "/settings.png", "sizes": "96x96" }]
     }
   ],
   "description": "A calculator specifically designed for doing arithmetic with hex numbers.",

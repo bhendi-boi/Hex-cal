@@ -78,19 +78,28 @@ function StyledSpan({
   children: ReactNode;
 }) {
   return (
+    // bg    #e5e7eb - gray-200  #2563eb - blue-600  #f9fafb - gray-50
+    // color #6b7280 - gray-500  #f9fafb - gray-50   #111827 - gray-900
     <motion.span
-      initial={{
-        backgroundColor: "#e5e7eb",
-        color: "#6b7280",
-      }}
-      animate={{
-        backgroundColor: disabled ? "#e5e7eb" : checked ? "#2563eb" : "#f9fafb",
-        color: disabled ? "#6b7280" : checked ? "#f9fafb" : "#111827",
-      }}
+      initial="disabled"
+      animate={disabled ? "disabled" : checked ? "checked" : "unChecked"}
       transition={{
-        type: "tween",
+        type: "spring",
         duration: 0.25,
-        ease: "anticipate",
+      }}
+      variants={{
+        disabled: {
+          backgroundColor: "#e5e7eb",
+          color: "#6b7280",
+        },
+        checked: {
+          backgroundColor: "#2563eb",
+          color: "#f9fafb",
+        },
+        unChecked: {
+          backgroundColor: "#f9fafb",
+          color: "#111827",
+        },
       }}
       className={clsx(
         "px-6 py-3 rounded-full cursor-pointer",

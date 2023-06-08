@@ -12,18 +12,14 @@
       "short_name": "Calculator",
       "description": "Do basic hexadecimal arithmetic with ease",
       "url": "/calculator",
-      "icons": [
-        { "src": "/manifest-icon-192.maskable.png", "sizes": "192x192" }
-      ]
+      "icons": [{ "src": "/calculator.png", "sizes": "96x96" }]
     },
     {
       "name": "Converter",
       "short_name": "Converter",
       "description": "Convert numbers between binary, octal, hexadecimal, and decimal bases with ease",
       "url": "/converter",
-      "icons": [
-        { "src": "/manifest-icon-192.maskable.png", "sizes": "192x192" }
-      ]
+      "icons": [{ "src": "/converter.png", "sizes": "96x96" }]
     },
     {
       "name": "Settings",

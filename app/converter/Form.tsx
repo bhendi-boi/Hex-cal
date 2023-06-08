@@ -1,10 +1,11 @@
 "use client";
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState, ChangeEvent, FormEvent, useEffect } from "react";
+import { Popover } from "@headlessui/react";
 import Input from "../Input";
 import Button from "../Button";
 import Toast from "../Toast";
 import ChooseBase from "../ChooseBase";
-import { ClipboardIcon } from "@heroicons/react/24/outline";
+import { ClipboardIcon, ClockIcon } from "@heroicons/react/24/outline";
 import { useSettings } from "@/hooks/useSettings";
 import { useHistory } from "@/hooks/useHistory";
 import { generateRegex } from "@/lib/generateRegex";
@@ -12,6 +13,7 @@ import { converter } from "@/lib/converter";
 import { copyToClipboard } from "@/lib/copyToClipboard";
 import { Bases, InputModeTypes } from "@/types";
 import { addPrefix } from "@/lib/addPrefix";
+import History from "./History";
 
 const Form = () => {
   const [settings] = useSettings();
@@ -22,6 +24,15 @@ const Form = () => {
   const [number, setNumber] = useState<string>("");
   const [result, setResult] = useState<string>("");
   const [showStatus, setShowStatus] = useState(false);
+  const [showHistory, setShowHistory] = useState(false);
+
+  useEffect(() => {
+    if (showHistory) {
+      document.querySelector("main")?.setAttribute("inset", "true");
+    } else {
+      document.querySelector("main")?.setAttribute("inset", "false");
+    }
+  }, [showHistory]);
 
   const { pattern, inputMode } = generateRegex(from);
 
@@ -50,6 +61,10 @@ const Form = () => {
     setShowStatus(true);
   }
 
+  function toggleShowHistory() {
+    setShowHistory((prev) => !prev);
+  }
+
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const res = converter({ from, to, number });
@@ -66,7 +81,6 @@ const Form = () => {
       result: res,
     });
   }
-  console.log(converterHistory);
 
   return (
     <>
@@ -102,24 +116,36 @@ const Form = () => {
           Convert
         </Button>
       </form>
-      {result !== undefined && (
-        <section aria-labelledby="result" className="px-2">
-          <header className="flex items-center justify-between">
-            <h2 id="result" className="text-xl font-medium">
-              Result
-            </h2>
-            {settings.showCopyToClipboard && (
-              <button
-                onClick={handleClick}
-                className="p-2 rounded-full cursor-pointer hover:bg-gray-100 active:bg-gray-200"
-              >
-                <ClipboardIcon className="w-6 h-6 text-gray-950" />
-              </button>
-            )}
-          </header>
-          <p className="text-gray-800">{result}</p>
-        </section>
-      )}
+      <Popover className="overflow-y-auto">
+        {result !== undefined && (
+          <section aria-labelledby="result" className="px-2">
+            <header className="flex items-center justify-between">
+              <h2 id="result" className="text-xl font-medium">
+                Result
+              </h2>
+              <div>
+                <Popover.Button
+                  onClick={toggleShowHistory}
+                  className="p-2 rounded-full cursor-pointer hover:bg-gray-100 active:bg-gray-200"
+                >
+                  <ClockIcon className="w-6 h-6 text-gray-950" />
+                </Popover.Button>
+                {settings.showCopyToClipboard && (
+                  <button
+                    onClick={handleClick}
+                    className="p-2 rounded-full cursor-pointer hover:bg-gray-100 active:bg-gray-200"
+                  >
+                    <ClipboardIcon className="w-6 h-6 text-gray-950" />
+                  </button>
+                )}
+              </div>
+            </header>
+            <p className="text-gray-800">{result}</p>
+          </section>
+        )}
+        <History toggleShowHistory={toggleShowHistory} />
+      </Popover>
+
       <Toast
         state={showStatus}
         setState={setShowStatus}

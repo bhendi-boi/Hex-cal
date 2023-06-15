@@ -24,7 +24,7 @@ const Form = () => {
   );
   const [defaultTo, setDefaultTo] = useState<Bases>(settings.defaultToBase);
   const [darkMode, setDarkMode] = useState(() => {
-    if (typeof (settings.darkMode === undefined)) {
+    if (typeof (settings === undefined)) {
       return false;
     }
     return settings.darkMode;

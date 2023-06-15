@@ -26,6 +26,15 @@ export function useSettings() {
   useEffect(() => {
     const root = window.document.documentElement;
     root.classList.toggle("dark", settings.darkMode);
+    if (settings.darkMode) {
+      document
+        .querySelector('meta[name="theme-color"]')
+        ?.setAttribute("content", "#0a0a0a");
+    } else {
+      document
+        .querySelector('meta[name="theme-color"]')
+        ?.setAttribute("content", "#ffffff");
+    }
   }, [settings.darkMode]);
 
   function updateSettings(newValue: UserSettings) {

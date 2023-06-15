@@ -37,7 +37,7 @@ export default function RootLayout({
         className={inter.className}
       >
         <Header />
-        <main className="min-h-[calc(100vh-4rem)] p-6 bg-background dark:bg-darkBackground dark:text-darkText text-text">
+        <main className="min-h-[calc(100vh-4rem)]  bg-background dark:bg-darkBackground dark:text-darkText text-text">
           {children}
         </main>
       </body>

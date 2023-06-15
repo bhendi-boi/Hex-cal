@@ -15,10 +15,10 @@ export const metadata: Metadata = {
 
 const page = () => {
   return (
-    <>
+    <div className="p-6">
       <InnerHeader title="Settings" />
       <Form />
-    </>
+    </div>
   );
 };
 

@@ -101,13 +101,15 @@ const Form = () => {
             {settings.showCopyToClipboard && (
               <button
                 onClick={handleClick}
-                className="p-2 rounded-full cursor-pointer hover:bg-gray-100 active:bg-gray-200"
+                className="p-2 rounded-full cursor-pointer hover:bg-gray-100 active:bg-gray-200 dark:active:bg-gray-400 dark:hover:bg-gray-300"
               >
-                <ClipboardIcon className="w-6 h-6 text-gray-950" />
+                <ClipboardIcon className="w-6 h-6 text-headingText dark:text-darkHeadingText" />
               </button>
             )}
           </header>
-          <p className="text-gray-800">{result}</p>
+          <p className="text-subheadingText dark:text-darkSubheadingText">
+            {result}
+          </p>
         </section>
       )}
       <Toast

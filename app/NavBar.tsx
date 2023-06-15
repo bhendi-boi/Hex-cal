@@ -13,8 +13,8 @@ import clsx from "clsx";
 const NavBar = () => {
   return (
     <Menu as="div" className="relative">
-      <Menu.Button className="relative p-2 overflow-hidden rounded-full hover:bg-gray-100 active:bg-gray-200 isolate">
-        <Bars2Icon className="w-6 h-6 text-gray-950" />
+      <Menu.Button className="relative p-2 overflow-hidden rounded-full hover:bg-gray-100 active:bg-gray-200 isolate text-headingText dark:text-darkHeadingText dark:hover:text-headingText">
+        <Bars2Icon className="w-6 h-6" />
       </Menu.Button>
       <AnimatePresence>
         <Menu.Items
@@ -22,15 +22,15 @@ const NavBar = () => {
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.9, opacity: 0 }}
-          className="absolute flex flex-col overflow-hidden bg-white divide-y divide-gray-100 rounded-md right-4 top-14"
+          className="absolute flex flex-col overflow-hidden divide-y divide-gray-100 rounded-md bg-headerBackground dark:bg-darkHeaderBackground dark:divide-gray-100/20 right-4 top-14"
         >
           <Menu.Item>
             {({ active }) => (
               <Link
                 href="/calculator"
                 className={clsx(
-                  "flex items-center px-8 py-4 text-gray-600",
-                  active && "bg-blue-500 text-white"
+                  "flex items-center px-8 py-4 text-gray-600 dark:text-gray-200",
+                  active && "bg-blue-600 dark:bg-blue-500 text-white"
                 )}
               >
                 <CalculatorIcon className="w-6 h-6 mr-4" />
@@ -43,8 +43,8 @@ const NavBar = () => {
               <Link
                 href="/converter"
                 className={clsx(
-                  "flex items-center px-8 py-4 text-gray-600",
-                  active && "bg-blue-500 text-white"
+                  "flex items-center px-8 py-4 text-gray-600 dark:text-gray-200",
+                  active && "bg-blue-600 dark:bg-blue-500 text-white"
                 )}
               >
                 <ArrowsUpDownIcon className="w-6 h-6 mr-4 rotate-90" />
@@ -57,8 +57,8 @@ const NavBar = () => {
               <Link
                 href="/settings"
                 className={clsx(
-                  "flex items-center px-8 py-4 text-gray-600 border border-gray-100",
-                  active && "bg-blue-500 text-white"
+                  "flex items-center px-8 py-4 text-gray-600 dark:text-gray-200",
+                  active && "bg-blue-600 dark:bg-blue-500 text-white"
                 )}
               >
                 <Cog6ToothIcon className="w-6 h-6 mr-4" />

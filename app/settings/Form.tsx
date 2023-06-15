@@ -23,6 +23,12 @@ const Form = () => {
     settings.defaultFromBase
   );
   const [defaultTo, setDefaultTo] = useState<Bases>(settings.defaultToBase);
+  const [darkMode, setDarkMode] = useState(() => {
+    if (typeof (settings === undefined)) {
+      return false;
+    }
+    return settings.darkMode;
+  });
   const [showCopyToClipboard, setShowCopyToClipboard] = useState(
     settings.showCopyToClipboard
   );
@@ -42,6 +48,7 @@ const Form = () => {
       defaultOperand2Base,
       defaultOperation,
       showFullText,
+      darkMode,
       defaultFromBase: defaultFrom,
       defaultToBase: defaultTo,
       showCopyToClipboard,
@@ -62,6 +69,14 @@ const Form = () => {
               srText="Show Copy to clipboard"
               enabled={showCopyToClipboard}
               setEnabled={setShowCopyToClipboard}
+            />
+          </div>
+          <div className="flex items-center justify-between gap-1 my-2">
+            <p>Use dark theme</p>
+            <Switch
+              srText="Use dark theme"
+              enabled={darkMode}
+              setEnabled={setDarkMode}
             />
           </div>
           <div className="flex items-center justify-between gap-1 mb-2">
@@ -143,7 +158,10 @@ export default Form;
 
 function StyledLegend({ children, ...rest }: ComponentProps<"legend">) {
   return (
-    <h2 {...rest} className="text-xl font-medium">
+    <h2
+      {...rest}
+      className="text-xl font-medium text-subheadingText dark:text-darkSubheadingText"
+    >
       {children}
     </h2>
   );

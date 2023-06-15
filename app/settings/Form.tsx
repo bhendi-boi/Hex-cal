@@ -23,12 +23,7 @@ const Form = () => {
     settings.defaultFromBase
   );
   const [defaultTo, setDefaultTo] = useState<Bases>(settings.defaultToBase);
-  const [darkMode, setDarkMode] = useState(() => {
-    if (typeof (settings === undefined)) {
-      return false;
-    }
-    return settings.darkMode;
-  });
+  const [darkMode, setDarkMode] = useState(settings.darkMode);
   const [showCopyToClipboard, setShowCopyToClipboard] = useState(
     settings.showCopyToClipboard
   );

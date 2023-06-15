@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       {/* Header */}
-      <header className="p-6 h-[calc(100dvh-4rem)] flex justify-center flex-col">
+      <header className="p-6 h-[calc(100dvh-4rem)] bg-background flex justify-center flex-col">
         <h2 className="text-4xl font-bold text-headingText">
           HexCal: Unleash the Power of Hexadecimals
         </h2>
@@ -55,7 +55,10 @@ export default function Home() {
         className="flex flex-col justify-center h-screen p-6 bg-white"
       >
         <header className="mb-4">
-          <h2 id="getStarted" className="text-3xl font-bold ">
+          <h2
+            id="getStarted"
+            className="text-3xl font-bold text-subheadingText"
+          >
             Get Started
           </h2>
         </header>

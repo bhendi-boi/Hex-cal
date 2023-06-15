@@ -18,6 +18,7 @@ export type UserSettings = {
   showCopyToClipboard: boolean;
   addPrefixToResult: boolean;
   showFullText: boolean;
+  darkMode :boolean;
   // ? experimental
   allowNegativeNumbers: boolean;
 

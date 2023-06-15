@@ -23,6 +23,7 @@ const Form = () => {
     settings.defaultFromBase
   );
   const [defaultTo, setDefaultTo] = useState<Bases>(settings.defaultToBase);
+  const [darkMode, setDarkMode] = useState(settings.darkMode ?? false);
   const [showCopyToClipboard, setShowCopyToClipboard] = useState(
     settings.showCopyToClipboard
   );
@@ -42,6 +43,7 @@ const Form = () => {
       defaultOperand2Base,
       defaultOperation,
       showFullText,
+      darkMode,
       defaultFromBase: defaultFrom,
       defaultToBase: defaultTo,
       showCopyToClipboard,
@@ -62,6 +64,14 @@ const Form = () => {
               srText="Show Copy to clipboard"
               enabled={showCopyToClipboard}
               setEnabled={setShowCopyToClipboard}
+            />
+          </div>
+          <div className="flex items-center justify-between gap-1 my-2">
+            <p>Use dark theme</p>
+            <Switch
+              srText="Use dark theme"
+              enabled={darkMode}
+              setEnabled={setDarkMode}
             />
           </div>
           <div className="flex items-center justify-between gap-1 mb-2">

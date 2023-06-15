@@ -7,6 +7,7 @@ const DEFAULT_SETTINGS: UserSettings = {
   defaultToBase: "dec",
   showCopyToClipboard: true,
   allowNegativeNumbers: false,
+  darkMode: false,
   showFullText: false,
   addPrefixToResult: false,
   defaultOperand1Base: "hex",
@@ -23,6 +24,12 @@ export function useSettings() {
     }
     window.localStorage.setItem("settings", JSON.stringify(settings));
   }, [settings]);
+
+  // darkmode
+  useEffect(() => {
+    const root = window.document.documentElement;
+    root.classList.toggle("dark", settings.darkMode);
+  }, [settings.darkMode]);
 
   function updateSettings(newValue: UserSettings) {
     setSettings((prev) => {

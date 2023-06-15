@@ -39,7 +39,7 @@ export function useSettings() {
 
   function getStoredSettings() {
     if (typeof window === "undefined") {
-      return DEFAULT_SETTINGS;
+      return;
     }
     const storedSettings = JSON.parse(
       window.localStorage.getItem("settings") ??

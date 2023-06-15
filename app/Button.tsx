@@ -11,7 +11,7 @@ const Button = ({ children, variant, ...rest }: Props) => {
     <button
       {...rest}
       className={clsx(
-        "w-full py-3 my-4 font-medium text-white bg-green-600 rounded-md"
+        "w-full py-3 my-4 font-medium text-white bg-green-500 dark:bg-green-600 rounded-md"
       )}
     >
       {children}

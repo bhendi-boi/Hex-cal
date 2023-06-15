@@ -158,7 +158,10 @@ export default Form;
 
 function StyledLegend({ children, ...rest }: ComponentProps<"legend">) {
   return (
-    <h2 {...rest} className="text-xl font-medium">
+    <h2
+      {...rest}
+      className="text-xl font-medium text-subheadingText dark:text-darkSubheadingText"
+    >
       {children}
     </h2>
   );

@@ -21,7 +21,7 @@ export default function ChooseBase({
   otherState,
   setState,
 }: Props) {
-  const [settings, updateSettings] = useSettings();
+  const [settings] = useSettings();
 
   return (
     <RadioGroup
@@ -36,28 +36,44 @@ export default function ChooseBase({
         <div className="flex justify-between h-20 gap-1 py-3 pb-4 my-4 overflow-x-auto sm:gap-4 sm:justify-start">
           <RadioGroup.Option disabled={otherState === "bin"} value="bin">
             {({ checked, disabled }) => (
-              <StyledSpan checked={checked} disabled={disabled}>
+              <StyledSpan
+                darkMode={settings.darkMode}
+                checked={checked}
+                disabled={disabled}
+              >
                 {settings.showFullText ? "Binary" : "Bin"}
               </StyledSpan>
             )}
           </RadioGroup.Option>
           <RadioGroup.Option disabled={otherState === "oct"} value="oct">
             {({ checked, disabled }) => (
-              <StyledSpan checked={checked} disabled={disabled}>
+              <StyledSpan
+                darkMode={settings.darkMode}
+                checked={checked}
+                disabled={disabled}
+              >
                 {settings.showFullText ? "Octal" : "Oct"}
               </StyledSpan>
             )}
           </RadioGroup.Option>
           <RadioGroup.Option disabled={otherState === "dec"} value="dec">
             {({ checked, disabled }) => (
-              <StyledSpan checked={checked} disabled={disabled}>
+              <StyledSpan
+                darkMode={settings.darkMode}
+                checked={checked}
+                disabled={disabled}
+              >
                 {settings.showFullText ? "Decimal" : "Dec"}
               </StyledSpan>
             )}
           </RadioGroup.Option>
           <RadioGroup.Option disabled={otherState === "hex"} value="hex">
             {({ checked, disabled }) => (
-              <StyledSpan checked={checked} disabled={disabled}>
+              <StyledSpan
+                darkMode={settings.darkMode}
+                checked={checked}
+                disabled={disabled}
+              >
                 {settings.showFullText ? "Hexadecimal" : "Hex"}
               </StyledSpan>
             )}
@@ -71,15 +87,21 @@ export default function ChooseBase({
 function StyledSpan({
   checked,
   disabled,
+  darkMode,
   children,
 }: {
   checked: boolean;
   disabled: boolean;
+  darkMode: boolean;
   children: ReactNode;
 }) {
   return (
     // bg    #e5e7eb - gray-200  #2563eb - blue-600  #f9fafb - gray-50
     // color #6b7280 - gray-500  #f9fafb - gray-50   #111827 - gray-900
+
+    // bg    #9ca3af - gray-400  #3b82f6 - blue-500  #e5e7eb - gray-200
+    // color #1f2937 - gray-800  #f9fafb - gray-50   #030712 - gray-950
+
     <motion.span
       initial="disabled"
       animate={disabled ? "disabled" : checked ? "checked" : "unChecked"}
@@ -89,20 +111,21 @@ function StyledSpan({
       }}
       variants={{
         disabled: {
-          backgroundColor: "#e5e7eb",
-          color: "#6b7280",
+          backgroundColor: !darkMode ? "#e5e7eb" : "#9ca3af",
+          color: darkMode ? "#6b7280" : "#1f2937",
         },
         checked: {
-          backgroundColor: "#2563eb",
+          backgroundColor: !darkMode ? "#2563eb" : "#3b82f6",
           color: "#f9fafb",
         },
         unChecked: {
-          backgroundColor: "#f9fafb",
-          color: "#111827",
+          backgroundColor: !darkMode ? "#f9fafb" : "#e5e7eb",
+          color: darkMode ? "#111827" : "#030712",
         },
       }}
       className={clsx(
-        "px-6 py-3 rounded-full cursor-pointer",
+        "px-6 py-3 rounded-full",
+        !disabled && "cursor-pointer",
         disabled && "cursor-not-allowed"
       )}
     >

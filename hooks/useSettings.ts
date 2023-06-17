@@ -37,9 +37,9 @@ export function useSettings() {
     }
   }, [settings.darkMode]);
 
-  function updateSettings(newValue: UserSettings) {
+  function updateSettings(newValue: Partial<UserSettings>) {
     setSettings((prev) => {
-      return { ...newValue };
+      return { ...prev, ...newValue };
     });
   }
 

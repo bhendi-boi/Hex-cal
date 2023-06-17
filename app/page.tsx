@@ -1,8 +1,21 @@
 "use client";
-import { RefObject, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 export default function Home() {
   const infoRef = useRef<HTMLDivElement>(null);
+  let installPrompt: any = null;
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    window.addEventListener("beforeinstallprompt", (event) => {
+      event.preventDefault();
+      installPrompt = event;
+    });
+  }, []);
+
+  async function handleClick() {
+    const result = await installPrompt.prompt();
+    installPrompt = null;
+  }
   return (
     <>
       {/* Header */}
@@ -10,7 +23,10 @@ export default function Home() {
         <h2 className="text-4xl font-bold text-headingText">
           HexCal: Unleash the Power of Hexadecimals
         </h2>
-        <button className="block w-full py-3 mt-8 mb-4 font-medium bg-blue-600 rounded-md text-gray-50 hover:bg-blue-500 active:bg-blue-600">
+        <button
+          onClick={handleClick}
+          className="block w-full py-3 mt-8 mb-4 font-medium bg-blue-600 rounded-md text-gray-50 hover:bg-blue-500 active:bg-blue-600"
+        >
           Try for Free
         </button>
         <button
@@ -67,7 +83,10 @@ export default function Home() {
           thousands of satisfied users and elevate your hexadecimal game. All it
           takes is one click.
         </p>
-        <button className="block w-full py-3 mt-8 mb-4 font-medium bg-blue-600 rounded-md text-gray-50 hover:bg-blue-500 active:bg-blue-600">
+        <button
+          onClick={handleClick}
+          className="block w-full py-3 mt-8 mb-4 font-medium bg-blue-600 rounded-md text-gray-50 hover:bg-blue-500 active:bg-blue-600"
+        >
           Try for Free
         </button>
       </section>

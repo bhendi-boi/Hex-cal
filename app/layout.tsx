@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Header from "./Header";
 import "./globals.css";
+import clsx from "clsx";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,7 +35,7 @@ export default function RootLayout({
       </head>
       <body
         style={{ WebkitTapHighlightColor: "transparent" }}
-        className={inter.className}
+        className={clsx(inter.className, "remove-scrolling")}
       >
         <Header />
         <main className="min-h-[calc(100vh-4rem)]  bg-background dark:bg-darkBackground dark:text-darkText text-text">

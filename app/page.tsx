@@ -45,8 +45,8 @@ export default function Home() {
       {/* Info */}
       <div
         ref={infoRef}
-        aria-aria-labelledby="info"
-        className="flex flex-col justify-center h-screen p-6 bg-indigo-600"
+        aria-labelledby="info"
+        className="flex flex-col justify-center h-screen p-6 bg-indigo-600 selection:bg-[#f81ce5] selection:font-medium"
       >
         <header className="mb-8">
           <h2 id="info" className="text-3xl font-bold text-fuchsia-50">

@@ -23,7 +23,7 @@ const Header = () => {
         </button>
       ) : (
         <Link href="/" className="flex justify-center mx-2">
-          <h1 className="mx-auto text-4xl font-extrabold text-brandColor">
+          <h1 className="mx-auto text-4xl font-extrabold text-headingText dark:text-darkHeadingText">
             Hex Cal
           </h1>
         </Link>

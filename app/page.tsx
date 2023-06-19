@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
+import Button from "./Button";
 
 export default function Home() {
   const infoRef = useRef<HTMLDivElement>(null);
@@ -31,7 +32,8 @@ export default function Home() {
           >
             Try for Free
           </button>
-          <button
+          <Button
+            variant="outline"
             onClick={() => {
               window.scrollTo({
                 top: infoRef.current?.offsetTop,
@@ -39,10 +41,9 @@ export default function Home() {
                 behavior: "smooth",
               });
             }}
-            className="block w-full py-3 text-blue-600 border border-blue-600 rounded-md hover:bg-gray-100 active:bg-gray-50 bg-gray-50"
           >
             Learn more
-          </button>
+          </Button>
         </header>
         {/* Info */}
         <div

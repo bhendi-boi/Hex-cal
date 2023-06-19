@@ -23,8 +23,11 @@ export default function Home() {
       <div className="standalone:hidden">
         {/* Header */}
         <header className="p-6 h-[calc(100dvh-4rem)] bg-background flex justify-center flex-col">
-          <h2 className="text-4xl font-bold text-headingText">
-            HexCal: Unleash the Power of Hexadecimals
+          <h2 className="text-6xl font-bold text-headingText">
+            HexCal{" "}
+            <span className="inline-block mt-2 text-4xl leading-tight">
+              Unleash the Power of Hexadecimals
+            </span>
           </h2>
           <button
             onClick={handleClick}
@@ -71,7 +74,7 @@ export default function Home() {
         {/* Get started */}
         <section
           aria-labelledby="getStarted"
-          className="flex flex-col justify-center h-screen p-6 bg-white"
+          className="flex flex-col justify-center h-screen p-6 bg-background"
         >
           <header className="mb-4">
             <h2
@@ -94,7 +97,7 @@ export default function Home() {
           </button>
         </section>
       </div>
-      <div>
+      <div className="browser:hidden">
         Quick links
         <ul>
           <li>

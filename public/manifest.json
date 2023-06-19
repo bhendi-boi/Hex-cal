@@ -1,5 +1,6 @@
 {
   "short_name": "Hex Cal",
+  "orientation": "portrait",
   "name": "Hex Cal",
   "background_color": "#f3f4f6",
   "display": "standalone",
@@ -12,21 +13,36 @@
       "short_name": "Calculator",
       "description": "Do basic hexadecimal arithmetic with ease",
       "url": "/calculator",
-      "icons": [{ "src": "/calculator.png", "sizes": "96x96" }]
+      "icons": [
+        {
+          "src": "/calculator.png",
+          "sizes": "96x96"
+        }
+      ]
     },
     {
       "name": "Converter",
       "short_name": "Converter",
       "description": "Convert numbers between binary, octal, hexadecimal, and decimal bases with ease",
       "url": "/converter",
-      "icons": [{ "src": "/converter.png", "sizes": "96x96" }]
+      "icons": [
+        {
+          "src": "/converter.png",
+          "sizes": "96x96"
+        }
+      ]
     },
     {
       "name": "Settings",
       "short_name": "Settings",
       "description": "Customize Hex Cal the way you like.",
       "url": "/settings",
-      "icons": [{ "src": "/settings.png", "sizes": "96x96" }]
+      "icons": [
+        {
+          "src": "/settings.png",
+          "sizes": "96x96"
+        }
+      ]
     }
   ],
   "description": "A calculator specifically designed for doing arithmetic with hex numbers.",
@@ -54,6 +70,23 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/750x1334-calculator.png",
+      "sizes": "750x1334",
+      "type": "image/png"
+    },
+    {
+      "src": "/750x1334-converter.png",
+      "sizes": "750x1334",
+      "type": "image/png"
+    },
+    {
+      "src": "/750x1334-settings.png",
+      "sizes": "750x1334",
+      "type": "image/png"
     }
   ]
 }

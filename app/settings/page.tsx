@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 const page = () => {
   return (
-    <div className="p-6">
+    <div className="max-w-xl p-6 mx-auto">
       <InnerHeader title="Settings" />
       <Form />
     </div>

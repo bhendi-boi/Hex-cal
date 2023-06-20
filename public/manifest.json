@@ -7,6 +7,12 @@
   "start_url": "/",
   "scope": "/",
   "theme_color": "#ffffff",
+  "related_applications": [
+    {
+      "platform": "webapp",
+      "url": "https://hex-cal.vercel.app/manifest.json"
+    }
+  ],
   "shortcuts": [
     {
       "name": "Calculator",

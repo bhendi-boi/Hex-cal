@@ -7,11 +7,16 @@ export default function Home() {
   const infoRef = useRef<HTMLDivElement>(null);
   let installPrompt: any = null;
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    window.addEventListener("beforeinstallprompt", (event) => {
-      event.preventDefault();
-      installPrompt = event;
-    });
+    const effect = async () => {
+      if (typeof window === "undefined") return;
+      window.addEventListener("beforeinstallprompt", (event) => {
+        event.preventDefault();
+        installPrompt = event;
+      });
+      const relatedApps = await window.navigator.getInstalledRelatedApps();
+      console.log(relatedApps);
+    };
+    effect();
   }, []);
 
   async function handleClick() {

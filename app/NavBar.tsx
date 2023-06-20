@@ -14,7 +14,10 @@ import clsx from "clsx";
 const NavBar = () => {
   return (
     <Menu as="div" className="relative">
-      <Menu.Button className="relative p-2 overflow-hidden rounded-full hover:bg-gray-100 active:bg-gray-200 isolate text-headingText dark:text-darkHeadingText dark:hover:text-headingText">
+      <Menu.Button
+        title="Toggle menu"
+        className="relative p-2 overflow-hidden rounded-full hover:bg-gray-100 active:bg-gray-200 isolate text-headingText dark:text-darkHeadingText dark:hover:text-headingText"
+      >
         <Bars2Icon className="w-6 h-6" />
       </Menu.Button>
       <AnimatePresence>

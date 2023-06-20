@@ -100,6 +100,7 @@ const Form = () => {
             </h2>
             {settings.showCopyToClipboard && (
               <button
+                title="Copy result to clipboard"
                 onClick={handleClick}
                 className="p-2 rounded-full cursor-pointer hover:bg-gray-100 active:bg-gray-200 dark:active:bg-gray-400 dark:hover:bg-gray-300"
               >

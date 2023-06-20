@@ -13,6 +13,7 @@ export default function Home() {
         event.preventDefault();
         installPrompt = event;
       });
+      // @ts-expect-error
       const relatedApps = await window.navigator.getInstalledRelatedApps();
       console.log(relatedApps);
     };

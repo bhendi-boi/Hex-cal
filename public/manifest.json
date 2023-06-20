@@ -10,7 +10,7 @@
   "related_applications": [
     {
       "platform": "webapp",
-      "url": "https://hex-cal.vercel.app/manifest.json"
+      "url": "/manifest.json"
     }
   ],
   "shortcuts": [

@@ -10,7 +10,7 @@
   "related_applications": [
     {
       "platform": "webapp",
-      "url": "/manifest.json"
+      "url": "https://hex-cal-git-is-installed-bhendi-boi.vercel.app/manifest.json"
     }
   ],
   "shortcuts": [

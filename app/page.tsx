@@ -20,38 +20,41 @@ export default function Home() {
   }
   return (
     <>
-      <div className="standalone:hidden">
+      <div className="standalone:hidden selection:bg-[#f81ce5] selection:font-medium selection:text-white">
         {/* Header */}
-        <header className="max-w-xl mx-auto p-6 h-[calc(100dvh-4rem)] bg-background flex justify-center flex-col">
-          <h2 className="flex flex-col font-bold text-headingText">
-            <span className="tracking-wide text-7xl">HexCal</span>
-            <span className="inline-block mt-2 text-3xl leading-none">
-              Unleash the Power of Hexadecimals
-            </span>
-          </h2>
-          <div className="flex flex-col items-center gap-4 mt-8 sm:flex-row">
-            <Button variant="filled" onClick={handleClick}>
-              Try for Free
-            </Button>
-            <Button
-              variant="outline"
-              onClick={() => {
-                window.scrollTo({
-                  top: infoRef.current?.offsetTop,
-                  left: 0,
-                  behavior: "smooth",
-                });
-              }}
-            >
-              Learn more
-            </Button>
-          </div>
-        </header>
+        <div className="bg-background">
+          <header className="max-w-xl mx-auto p-6 h-[calc(100dvh-4rem)]  flex justify-center flex-col">
+            <h2 className="flex flex-col my-4 text-5xl font-bold sm:my-6 text-headingText">
+              Hex Cal
+            </h2>
+            <p className="text-subheadingText">
+              Discover the Power of HexCal - Your Comprehensive Hexadecimal
+              Calculator for Seamless Numeric Conversions and Precise Results
+            </p>
+            <div className="flex flex-col gap-4 mt-6 sm:items-center sm:mt-4 sm:flex-row">
+              <Button variant="filled" onClick={handleClick}>
+                Try for Free
+              </Button>
+              <Button
+                variant="outline"
+                onClick={() => {
+                  window.scrollTo({
+                    top: infoRef.current?.offsetTop,
+                    left: 0,
+                    behavior: "smooth",
+                  });
+                }}
+              >
+                Learn more
+              </Button>
+            </div>
+          </header>
+        </div>
         {/* Info */}
         <div
           ref={infoRef}
           aria-labelledby="info"
-          className="flex flex-col justify-center h-screen p-6 bg-indigo-600 selection:bg-[#f81ce5] selection:font-medium "
+          className="flex flex-col justify-center h-screen p-6 bg-indigo-600"
         >
           <div className="max-w-xl mx-auto">
             <header className="mb-8">
@@ -76,27 +79,29 @@ export default function Home() {
           </div>
         </div>
         {/* Get started */}
-        <section
-          aria-labelledby="getStarted"
-          className="flex flex-col justify-center h-screen max-w-xl p-6 mx-auto bg-background"
-        >
-          <header className="mb-4">
-            <h2
-              id="getStarted"
-              className="text-3xl font-bold sm:text-4xl text-subheadingText"
-            >
-              Get Started
-            </h2>
-          </header>
-          <p className="mb-4 text-lg text-gray-900">
-            Embrace the power of hexadecimal arithmetic today with Hex Cal! Join
-            thousands of satisfied users and elevate your hexadecimal game. All
-            it takes is one click.
-          </p>
-          <Button onClick={handleClick} variant="filled">
-            Try for Free
-          </Button>
-        </section>
+        <div className="bg-background">
+          <section
+            aria-labelledby="getStarted"
+            className="flex flex-col justify-center h-screen max-w-xl p-6 mx-auto bg-background"
+          >
+            <header className="mb-4">
+              <h2
+                id="getStarted"
+                className="text-3xl font-bold sm:text-4xl text-subheadingText"
+              >
+                Get Started
+              </h2>
+            </header>
+            <p className="mb-4 text-lg text-gray-900">
+              Embrace the power of hexadecimal arithmetic today with Hex Cal!
+              Join thousands of satisfied users and elevate your hexadecimal
+              game. All it takes is one click.
+            </p>
+            <Button onClick={handleClick} variant="filled">
+              Try for Free
+            </Button>
+          </section>
+        </div>
       </div>
       <div className="browser:hidden">
         Quick links

@@ -91,6 +91,7 @@ const Form = () => {
             type="text"
             id="operand1"
             name="operand1"
+            required
             pattern={pattern1}
             inputMode={inputMode1 as InputModeTypes}
             placeholder="Operand 1 goes here ..."
@@ -114,6 +115,7 @@ const Form = () => {
             type="text"
             id="operand2"
             name="operand2"
+            required
             pattern={pattern2}
             inputMode={inputMode2 as InputModeTypes}
             placeholder="Operand2 goes here ..."

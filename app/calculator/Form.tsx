@@ -79,8 +79,8 @@ const Form = () => {
   }
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <div className="px-2 pb-4">
+      <form onSubmit={handleSubmit} className="px-2">
+        <div className="pb-4">
           <ChooseBase
             variant="single"
             label="Operand 1"
@@ -103,7 +103,7 @@ const Form = () => {
           state={operation}
           setState={setOperation}
         />
-        <div className="px-2 pt-4">
+        <div className="">
           <ChooseBase
             variant="single"
             label="Operand 2"

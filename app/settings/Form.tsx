@@ -102,12 +102,14 @@ const Form = () => {
         <div className="px-2">
           <StyledLegend>Calculator</StyledLegend>
           <ChooseBase
+            variant="single"
             isSettings
             label="Choose default base for operand1."
             state={defaultOperand1Base}
             setState={setDefaultOperand1Base}
           />
           <ChooseBase
+            variant="single"
             isSettings
             label="Choose default base for operand2."
             state={defaultOperand2Base}
@@ -122,18 +124,22 @@ const Form = () => {
         <div className="px-2">
           <StyledLegend>Converter</StyledLegend>
           <ChooseBase
+            variant="double"
             isSettings
             label="Choose default base from which you want to convert a number"
             state={defaultFrom}
-            otherState={defaultTo}
             setState={setDefaultFrom}
+            otherState={defaultTo}
+            setOtherState={setDefaultTo}
           />
           <ChooseBase
+            variant="double"
             isSettings
             label="Choose default base to which you want to convert a number"
             state={defaultTo}
-            otherState={defaultFrom}
             setState={setDefaultTo}
+            otherState={defaultFrom}
+            setOtherState={setDefaultFrom}
           />
         </div>
         <Button type="submit" variant="converter">

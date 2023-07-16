@@ -77,6 +77,10 @@ select {
   }
 }
 
+html.dark {
+  color-scheme: dark light;
+}
+
 @layer base {
 
   .remove-scrolling {

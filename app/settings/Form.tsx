@@ -6,7 +6,7 @@ import Toast from "../Toast";
 import ChooseBase from "../ChooseBase";
 import { useSettings } from "@/hooks/useSettings";
 import { Bases } from "@/types";
-import ChooseOperation from "../calculator/ChooseOperation";
+import ChooseOperation from "../ChooseOperation";
 
 const Form = () => {
   const [settings, updateSettings] = useSettings();

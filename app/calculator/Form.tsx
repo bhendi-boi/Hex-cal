@@ -4,7 +4,7 @@ import Toast from "../Toast";
 import Input from "../Input";
 import Button from "../Button";
 import ChooseBase from "../ChooseBase";
-import ChooseOperation from "./ChooseOperation";
+import ChooseOperation from "../ChooseOperation";
 import { ClipboardIcon } from "@heroicons/react/24/outline";
 import { converter } from "@/lib/converter";
 import { useSettings } from "@/hooks/useSettings";

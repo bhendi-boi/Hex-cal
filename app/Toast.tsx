@@ -25,7 +25,7 @@ const Toast = ({ state, setState, message }: Props) => {
           className="fixed top-3/4 w-full"
         >
           <Dialog.Panel className="mx-auto bg-white max-w-xs p-4 rounded-lg">
-            <Dialog.Title className="mx-auto text-center font-medium text-lg">
+            <Dialog.Title className="mx-auto text-center font-medium text-lg text-headingText">
               {message}
             </Dialog.Title>
           </Dialog.Panel>

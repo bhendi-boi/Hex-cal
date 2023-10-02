@@ -79,7 +79,7 @@ const Form = () => {
   }
   return (
     <>
-      <form onSubmit={handleSubmit} className="px-2">
+      <form onSubmit={handleSubmit} className="">
         <div className="pb-4">
           <ChooseBase
             variant="single"
@@ -126,7 +126,7 @@ const Form = () => {
         <Button variant="calculator">Solve</Button>
       </form>
       {result !== undefined && (
-        <section aria-labelledby="result" className="px-2">
+        <section aria-labelledby="result" className="">
           <header className="flex items-center justify-between">
             <h2 id="result" className="text-xl font-medium">
               Result

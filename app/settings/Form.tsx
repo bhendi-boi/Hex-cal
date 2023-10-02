@@ -55,8 +55,8 @@ const Form = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="py-4 space-y-4">
-        <fieldset className="px-2">
+      <form onSubmit={handleSubmit} className="py-4 space-y-4 px-2">
+        <fieldset className="">
           <StyledLegend>All</StyledLegend>
           <div className="flex items-center justify-between gap-1 my-2">
             <p>Show copy to clipboard</p>
@@ -99,7 +99,7 @@ const Form = () => {
             />
           </div>
         </fieldset>
-        <div className="px-2">
+        <div className="">
           <StyledLegend>Calculator</StyledLegend>
           <ChooseBase
             variant="single"
@@ -121,7 +121,7 @@ const Form = () => {
             setState={setDefaultOperation}
           />
         </div>
-        <div className="px-2">
+        <div className="">
           <StyledLegend>Converter</StyledLegend>
           <ChooseBase
             variant="double"

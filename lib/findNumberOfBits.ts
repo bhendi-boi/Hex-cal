@@ -9,7 +9,7 @@ export function findNumberOfBits(inputBase: Bases, input: string) {
       return (input.length * 3).toString();
     }
     case "dec": {
-      return Math.floor(Math.log2(Number(input))).toString();
+      return Math.ceil(Math.log2(Number(input))).toString();
     }
     case "hex": {
       return (input.length * 4).toString();

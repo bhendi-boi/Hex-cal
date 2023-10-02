@@ -42,7 +42,7 @@ const Form = () => {
       return input.replace(/[^0-7]/g, "");
     }
     if (operand1Base === "dec") {
-      return input.replace(/[^0-9]/g, "");
+      return input.replace(/[^0-9-]/g, "");
     }
     if (operand1Base === "hex") {
       return input.replace(/[^0-9A-Fa-f]/g, "");

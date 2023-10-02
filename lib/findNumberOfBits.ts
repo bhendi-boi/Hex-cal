@@ -1,6 +1,6 @@
 import { Bases } from "@/types";
 
-export default function findNumberOfBits(inputBase: Bases, input: string) {
+export function findNumberOfBits(inputBase: Bases, input: string) {
   switch (inputBase) {
     case "bin": {
       return input.length.toString();

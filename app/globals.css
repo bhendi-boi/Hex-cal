@@ -76,3 +76,7 @@ select {
     scroll-behavior: auto !important;
   }
 }
+
+html.dark {
+  color-scheme: dark light;
+}

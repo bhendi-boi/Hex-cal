@@ -17,10 +17,10 @@ export const metadata: Metadata = {
 
 const page = () => {
   return (
-    <>
+    <div className="max-w-xl p-6 mx-auto">
       <InnerHeader title="Converter" />
       <Form />
-    </>
+    </div>
   );
 };
 

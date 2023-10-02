@@ -1,12 +1,14 @@
 "use client";
 import { useState, useEffect } from "react";
 import { UserSettings } from "@/types";
+import { useLocalStorage } from "usehooks-ts";
 
 const DEFAULT_SETTINGS: UserSettings = {
   defaultFromBase: "hex",
   defaultToBase: "dec",
   showCopyToClipboard: true,
   allowNegativeNumbers: false,
+  darkMode: false,
   showFullText: false,
   addPrefixToResult: false,
   defaultOperand1Base: "hex",
@@ -15,30 +17,30 @@ const DEFAULT_SETTINGS: UserSettings = {
 };
 
 export function useSettings() {
-  const [settings, setSettings] = useState<UserSettings>(getStoredSettings);
+  const [settings, setSettings] = useLocalStorage<UserSettings>(
+    "settings",
+    DEFAULT_SETTINGS
+  );
 
+  // darkmode
   useEffect(() => {
-    if (typeof window === "undefined") {
-      return;
+    const root = window.document.documentElement;
+    root.classList.toggle("dark", settings.darkMode);
+    if (settings.darkMode) {
+      document
+        .querySelector('meta[name="theme-color"]')
+        ?.setAttribute("content", "#0a0a0a");
+    } else {
+      document
+        .querySelector('meta[name="theme-color"]')
+        ?.setAttribute("content", "#ffffff");
     }
-    window.localStorage.setItem("settings", JSON.stringify(settings));
-  }, [settings]);
+  }, [settings.darkMode]);
 
-  function updateSettings(newValue: UserSettings) {
+  function updateSettings(newValue: Partial<UserSettings>) {
     setSettings((prev) => {
-      return { ...newValue };
+      return { ...prev, ...newValue };
     });
-  }
-
-  function getStoredSettings() {
-    if (typeof window === "undefined") {
-      return DEFAULT_SETTINGS;
-    }
-    const storedSettings = JSON.parse(
-      window.localStorage.getItem("settings") ??
-        JSON.stringify(DEFAULT_SETTINGS)
-    );
-    return storedSettings;
   }
 
   return [settings, updateSettings] as const;

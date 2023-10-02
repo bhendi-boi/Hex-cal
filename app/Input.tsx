@@ -7,7 +7,7 @@ const Input = ({ className, ...restProps }: InputProps) => {
     <input
       {...restProps}
       className={clsx(
-        "px-6 py-3 w-full rounded-md focus-visible:outline-none drop-shadow-sm text-gray-800 bg-gray-50 focus-visible:shadow-md",
+        "px-6 py-3 w-full rounded-md focus-visible:outline-none drop-shadow-sm text-gray-950 bg-gray-50 dark:bg-gray-300  placeholder:text-gray-950 focus-visible:shadow-md",
         true && className
       )}
     />

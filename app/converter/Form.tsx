@@ -10,6 +10,7 @@ import { useSettings } from "@/hooks/useSettings";
 import { useHistory } from "@/hooks/useHistory";
 import { generateRegex } from "@/lib/generateRegex";
 import { converter } from "@/lib/converter";
+import { swapBases } from "@/lib/swapBases";
 import { copyToClipboard } from "@/lib/copyToClipboard";
 import { Bases, InputModeTypes } from "@/types";
 import { addPrefix } from "@/lib/addPrefix";
@@ -86,12 +87,21 @@ const Form = () => {
     <>
       <form onSubmit={(e) => handleSubmit(e)} className="px-2">
         <ChooseBase
+          variant="double"
           label="From"
           state={from}
           setState={setFrom}
           otherState={to}
+          setOtherState={setTo}
         />
-        <ChooseBase label="To" state={to} setState={setTo} otherState={from} />
+        <ChooseBase
+          variant="double"
+          label="To"
+          state={to}
+          setState={setTo}
+          otherState={from}
+          setOtherState={setFrom}
+        />
         <div className="flex flex-col gap-2">
           <label htmlFor="number" className="text-xl font-medium">
             Number

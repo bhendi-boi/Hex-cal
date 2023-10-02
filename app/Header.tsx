@@ -9,26 +9,28 @@ const Header = () => {
   const pathname = usePathname();
   const router = useRouter();
   return (
-    <header className="sticky top-0 flex items-center justify-between h-16 px-4 bg-white z-50">
+    <header className="sticky top-0 z-50 h-16 px-4 bg-headerBackground dark:bg-darkHeaderBackground">
       {/* added mx-2 to compensate p-2 class on button */}
-      {pathname !== "/" ? (
-        <button
-          onClick={() => {
-            router.back();
-          }}
-          className="mx-2 flex items-center gap-0.5 text-gray-950"
-        >
-          <ChevronLeftIcon aria-hidden className="w-6 h-6" />
-          <span className="text-lg">Back</span>
-        </button>
-      ) : (
-        <Link href="/" className="flex justify-center mx-2">
-          <h1 className="mx-auto text-4xl font-extrabold text-brandColor">
-            Hex Cal
-          </h1>
-        </Link>
-      )}
-      <NavBar />
+      <div className="flex items-center justify-between h-16 max-w-xl mx-auto">
+        {pathname !== "/" ? (
+          <button
+            onClick={() => {
+              router.back();
+            }}
+            className="mx-2 flex items-center gap-0.5 text-headingText dark:text-darkHeadingText"
+          >
+            <ChevronLeftIcon aria-hidden className="w-6 h-6" />
+            <span className="text-lg">Back</span>
+          </button>
+        ) : (
+          <Link href="/" className="flex justify-center mx-2">
+            <h1 className="mx-auto text-4xl font-extrabold text-headingText dark:text-darkHeadingText">
+              Hex Cal
+            </h1>
+          </Link>
+        )}
+        <NavBar />
+      </div>
     </header>
   );
 };

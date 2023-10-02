@@ -6,7 +6,7 @@ import Toast from "../Toast";
 import ChooseBase from "../ChooseBase";
 import { useSettings } from "@/hooks/useSettings";
 import { Bases } from "@/types";
-import ChooseOperation from "../calculator/ChooseOperation";
+import ChooseOperation from "../ChooseOperation";
 
 const Form = () => {
   const [settings, updateSettings] = useSettings();
@@ -23,6 +23,7 @@ const Form = () => {
     settings.defaultFromBase
   );
   const [defaultTo, setDefaultTo] = useState<Bases>(settings.defaultToBase);
+  const [darkMode, setDarkMode] = useState(settings.darkMode);
   const [showCopyToClipboard, setShowCopyToClipboard] = useState(
     settings.showCopyToClipboard
   );
@@ -42,6 +43,7 @@ const Form = () => {
       defaultOperand2Base,
       defaultOperation,
       showFullText,
+      darkMode,
       defaultFromBase: defaultFrom,
       defaultToBase: defaultTo,
       showCopyToClipboard,
@@ -62,6 +64,14 @@ const Form = () => {
               srText="Show Copy to clipboard"
               enabled={showCopyToClipboard}
               setEnabled={setShowCopyToClipboard}
+            />
+          </div>
+          <div className="flex items-center justify-between gap-1 my-2">
+            <p>Use dark theme</p>
+            <Switch
+              srText="Use dark theme"
+              enabled={darkMode}
+              setEnabled={setDarkMode}
             />
           </div>
           <div className="flex items-center justify-between gap-1 mb-2">
@@ -92,12 +102,14 @@ const Form = () => {
         <div className="px-2">
           <StyledLegend>Calculator</StyledLegend>
           <ChooseBase
+            variant="single"
             isSettings
             label="Choose default base for operand1."
             state={defaultOperand1Base}
             setState={setDefaultOperand1Base}
           />
           <ChooseBase
+            variant="single"
             isSettings
             label="Choose default base for operand2."
             state={defaultOperand2Base}
@@ -112,18 +124,22 @@ const Form = () => {
         <div className="px-2">
           <StyledLegend>Converter</StyledLegend>
           <ChooseBase
+            variant="double"
             isSettings
             label="Choose default base from which you want to convert a number"
             state={defaultFrom}
-            otherState={defaultTo}
             setState={setDefaultFrom}
+            otherState={defaultTo}
+            setOtherState={setDefaultTo}
           />
           <ChooseBase
+            variant="double"
             isSettings
             label="Choose default base to which you want to convert a number"
             state={defaultTo}
-            otherState={defaultFrom}
             setState={setDefaultTo}
+            otherState={defaultFrom}
+            setOtherState={setDefaultFrom}
           />
         </div>
         <Button type="submit" variant="converter">
@@ -143,7 +159,10 @@ export default Form;
 
 function StyledLegend({ children, ...rest }: ComponentProps<"legend">) {
   return (
-    <h2 {...rest} className="text-xl font-medium">
+    <h2
+      {...rest}
+      className="text-xl font-medium text-subheadingText dark:text-darkSubheadingText"
+    >
       {children}
     </h2>
   );

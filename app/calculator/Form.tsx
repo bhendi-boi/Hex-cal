@@ -4,7 +4,7 @@ import Toast from "../Toast";
 import Input from "../Input";
 import Button from "../Button";
 import ChooseBase from "../ChooseBase";
-import ChooseOperation from "./ChooseOperation";
+import ChooseOperation from "../ChooseOperation";
 import { ClipboardIcon } from "@heroicons/react/24/outline";
 import { converter } from "@/lib/converter";
 import { useSettings } from "@/hooks/useSettings";
@@ -79,9 +79,10 @@ const Form = () => {
   }
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <div className="px-2 pb-4">
+      <form onSubmit={handleSubmit} className="px-2">
+        <div className="pb-4">
           <ChooseBase
+            variant="single"
             label="Operand 1"
             state={operand1Base}
             setState={setOperand1Base}
@@ -90,6 +91,7 @@ const Form = () => {
             type="text"
             id="operand1"
             name="operand1"
+            required
             pattern={pattern1}
             inputMode={inputMode1 as InputModeTypes}
             placeholder="Operand 1 goes here ..."
@@ -102,8 +104,9 @@ const Form = () => {
           state={operation}
           setState={setOperation}
         />
-        <div className="px-2 pt-4">
+        <div className="">
           <ChooseBase
+            variant="single"
             label="Operand 2"
             state={operand2Base}
             setState={setOperand2Base}
@@ -112,6 +115,7 @@ const Form = () => {
             type="text"
             id="operand2"
             name="operand2"
+            required
             pattern={pattern2}
             inputMode={inputMode2 as InputModeTypes}
             placeholder="Operand2 goes here ..."
@@ -129,14 +133,17 @@ const Form = () => {
             </h2>
             {settings.showCopyToClipboard && (
               <button
+                title="Copy result to clipboard"
                 onClick={handleClick}
-                className="p-2 rounded-full cursor-pointer hover:bg-gray-100 active:bg-gray-200"
+                className="p-2 rounded-full cursor-pointer hover:bg-gray-100 active:bg-gray-200 text-headingText dark:text-darkHeadingText"
               >
-                <ClipboardIcon className="w-6 h-6 text-gray-950" />
+                <ClipboardIcon className="w-6 h-6" />
               </button>
             )}
           </header>
-          <p className="text-gray-800">{result}</p>
+          <p className="text-subheadingText dark:text-darkSubheadingText">
+            {result}
+          </p>
         </section>
       )}
       <Toast

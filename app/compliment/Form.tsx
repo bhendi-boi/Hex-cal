@@ -55,7 +55,7 @@ const Form = () => {
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const output = findCompliment(isOnes, input, bits);
+    const output = findCompliment(isOnes, input, inputBase, bits);
     setResult(output);
   }
   return (

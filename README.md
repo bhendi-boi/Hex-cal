@@ -1,4 +1,4 @@
-![Hex-Cal poster](public/Hex-cal.png)
+![Hex-Cal poster](https://github.com/bhendi-boi/Hex-cal/blob/main/public/Hex-Cal.png?raw=true)
 
 ## Project Structure
 

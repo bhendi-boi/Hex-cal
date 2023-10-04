@@ -1,3 +1,5 @@
+![Hex-Cal poster](public/Hex-cal.png)
+
 ## Project Structure
 
 - This project uses nextjs13's app directory.

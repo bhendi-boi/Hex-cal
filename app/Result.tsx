@@ -28,7 +28,7 @@ const Result = ({ result, handleClick, settings }: Props) => {
       </header>
       {result && (
         <div className="flex gap-4 items-center">
-          <p className="text-subheadingText dark:text-darkSubheadingText text-xl font-medium">
+          <p className="text-subheadingText dark:text-darkSubheadingText text-xl font-medium uppercase font-mono">
             {result}
           </p>
           <ToolTip info="Click on the result to change it's format/prefix" />

@@ -107,9 +107,7 @@ const Form = () => {
         </div>
         <Button variant="calculator">Compute </Button>
       </form>
-      {result !== undefined && (
-        <Result settings={settings} handleClick={handleClick} result={result} />
-      )}
+      <Result settings={settings} handleClick={handleClick} result={result} />
       <Toast
         state={showStatus}
         setState={setShowStatus}

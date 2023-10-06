@@ -1,6 +1,7 @@
 import { UserSettings } from "@/types";
 import { ClipboardIcon } from "@heroicons/react/24/outline";
 import React from "react";
+import ToolTip from "./ToolTip";
 
 type Props = {
   result: string;
@@ -25,9 +26,14 @@ const Result = ({ result, handleClick, settings }: Props) => {
           </button>
         )}
       </header>
-      <p className="text-subheadingText dark:text-darkSubheadingText">
-        {result}
-      </p>
+      {result && (
+        <div className="flex gap-4 items-center">
+          <p className="text-subheadingText dark:text-darkSubheadingText text-xl font-medium">
+            {result}
+          </p>
+          <ToolTip info="Click on the result to change it's format/prefix" />
+        </div>
+      )}
     </section>
   );
 };

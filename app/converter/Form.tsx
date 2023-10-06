@@ -8,7 +8,6 @@ import ChooseBase from "../ChooseBase";
 import { useSettings } from "@/hooks/useSettings";
 import { generateRegex } from "@/lib/generateRegex";
 import { converter } from "@/lib/converter";
-import { swapBases } from "@/lib/swapBases";
 import { copyToClipboard } from "@/lib/copyToClipboard";
 import { Bases, InputModeTypes } from "@/types";
 import { addPrefix } from "@/lib/addPrefix";
@@ -102,9 +101,7 @@ const Form = () => {
           Convert
         </Button>
       </form>
-      {result !== undefined && (
-        <Result settings={settings} handleClick={handleClick} result={result} />
-      )}
+      <Result settings={settings} handleClick={handleClick} result={result} />
       <Toast
         state={showStatus}
         setState={setShowStatus}

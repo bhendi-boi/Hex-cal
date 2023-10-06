@@ -1,6 +1,6 @@
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Dialog } from "@headlessui/react";
+import * as Dialog from "@radix-ui/react-dialog";
 
 type Props = {
   state: boolean;
@@ -10,28 +10,29 @@ type Props = {
 
 const Toast = ({ state, setState, message }: Props) => {
   return (
-    <Dialog
-      className="bg-white relative z-50 rounded-lg"
-      open={state}
-      onClose={() => setState(false)}
-    >
-      <AnimatePresence>
-        <motion.div className="fixed inset-0 bg-black/30" aria-hidden="true" />
+    <Dialog.Root open={state} onOpenChange={setState}>
+      <Dialog.Overlay asChild>
         <motion.div
-          initial={{
-            top: "100%",
-          }}
-          animate={{ top: "75%" }}
-          className="fixed top-3/4 w-full"
-        >
-          <Dialog.Panel className="mx-auto bg-white max-w-xs p-4 rounded-lg">
-            <Dialog.Title className="mx-auto text-center font-medium text-lg text-headingText">
+          className="fixed inset-0 z-50 bg-black/30"
+          aria-hidden="true"
+        />
+      </Dialog.Overlay>
+      <AnimatePresence>
+        <Dialog.Content asChild>
+          <motion.div
+            initial={{
+              top: "100%",
+            }}
+            animate={{ top: "75%" }}
+            className="fixed z-50 w-full max-w-xs p-4 mx-auto -translate-x-1/2 bg-white rounded-lg left-1/2"
+          >
+            <Dialog.Title className="mx-auto text-lg font-medium text-center text-headingText">
               {message}
             </Dialog.Title>
-          </Dialog.Panel>
-        </motion.div>
+          </motion.div>
+        </Dialog.Content>
       </AnimatePresence>
-    </Dialog>
+    </Dialog.Root>
   );
 };
 

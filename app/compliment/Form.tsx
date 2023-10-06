@@ -4,8 +4,8 @@ import Toast from "../Toast";
 import Input from "../Input";
 import Button from "../Button";
 import Switch from "../Switch";
+import Result from "../Result";
 import ChooseBase from "../ChooseBase";
-import { ClipboardIcon } from "@heroicons/react/24/outline";
 import { generateRegex } from "@/lib/generateRegex";
 import { copyToClipboard } from "@/lib/copyToClipboard";
 import { findNumberOfBits } from "@/lib/findNumberOfBits";
@@ -108,25 +108,7 @@ const Form = () => {
         <Button variant="calculator">Compute </Button>
       </form>
       {result !== undefined && (
-        <section aria-labelledby="result" className="">
-          <header className="flex items-center justify-between">
-            <h2 id="result" className="text-xl font-medium">
-              Result
-            </h2>
-            {settings.showCopyToClipboard && (
-              <button
-                title="Copy result to clipboard"
-                onClick={handleClick}
-                className="p-2 rounded-full cursor-pointer hover:bg-gray-100 active:bg-gray-200 dark:active:bg-gray-400 dark:hover:bg-gray-300"
-              >
-                <ClipboardIcon className="w-6 h-6 text-headingText dark:text-darkHeadingText" />
-              </button>
-            )}
-          </header>
-          <p className="text-subheadingText dark:text-darkSubheadingText">
-            {result}
-          </p>
-        </section>
+        <Result settings={settings} handleClick={handleClick} result={result} />
       )}
       <Toast
         state={showStatus}

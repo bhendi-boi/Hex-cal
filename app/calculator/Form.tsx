@@ -3,9 +3,9 @@ import React, { useState, ChangeEvent, FormEvent } from "react";
 import Toast from "../Toast";
 import Input from "../Input";
 import Button from "../Button";
+import Result from "../Result";
 import ChooseBase from "../ChooseBase";
 import ChooseOperation from "../ChooseOperation";
-import { ClipboardIcon } from "@heroicons/react/24/outline";
 import { converter } from "@/lib/converter";
 import { useSettings } from "@/hooks/useSettings";
 import { generateRegex } from "@/lib/generateRegex";
@@ -126,25 +126,7 @@ const Form = () => {
         <Button variant="calculator">Solve</Button>
       </form>
       {result !== undefined && (
-        <section aria-labelledby="result" className="">
-          <header className="flex items-center justify-between">
-            <h2 id="result" className="text-xl font-medium">
-              Result
-            </h2>
-            {settings.showCopyToClipboard && (
-              <button
-                title="Copy result to clipboard"
-                onClick={handleClick}
-                className="p-2 rounded-full cursor-pointer hover:bg-gray-100 active:bg-gray-200 text-headingText dark:text-darkHeadingText"
-              >
-                <ClipboardIcon className="w-6 h-6" />
-              </button>
-            )}
-          </header>
-          <p className="text-subheadingText dark:text-darkSubheadingText">
-            {result}
-          </p>
-        </section>
+        <Result settings={settings} handleClick={handleClick} result={result} />
       )}
       <Toast
         state={showStatus}

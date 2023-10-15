@@ -30,6 +30,10 @@ export default function RootLayout({
         <link rel="icon" type="image/x-icon" href="/icon.svg" />
         <link rel="apple-touch-icon" href="apple-icon-180.png" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta
+          name="google-site-verification"
+          content="6c9gocG88EG2X8AXFauiCcylOqRUISBKkSdmh-V62Lg"
+        />
         <meta name="theme-color" content="#ffffff" />
         <link rel="manifest" href="/manifest.json" />
       </head>

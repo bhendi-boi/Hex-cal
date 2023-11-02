@@ -1,7 +1,8 @@
 import { Bases } from "@/types";
 import { converter } from "./converter";
-import { convertToDec } from "./convertToDec";
 import { paddZeros } from "./padZeros";
+import { flipBits } from "./flipBits";
+import { addBinary } from "./addBinary";
 
 export function findCompliment(
   isOnes: boolean,
@@ -13,21 +14,15 @@ export function findCompliment(
   const MAX = Math.pow(2, noOfBits);
   let binaryString = converter({ from: inputBase, to: "bin", number: input });
 
-  if (!isOnes) {
-    // padding zeros if necessary
-    binaryString = paddZeros(binaryString, "bin", noOfBits);
+  // padding zeros if necessary
+  binaryString = paddZeros(binaryString, "bin", noOfBits);
 
-    const isNegative = binaryString[0] === "1";
-    if (!isNegative) {
-      const resultAsNumber =
-        MAX - convertToDec({ from: "bin", number: binaryString });
-      const resultInDesiredFormat = converter({
-        from: "dec",
-        to: inputBase,
-        number: resultAsNumber.toString(),
-      });
-      return paddZeros(resultInDesiredFormat, inputBase, noOfBits);
-    }
+  // flipping bits
+  binaryString = flipBits(binaryString);
+
+  if (isOnes) {
+    return binaryString;
   }
-  return "1";
+  // adding 1
+  return paddZeros(addBinary(binaryString, "1"), "bin", binaryString.length);
 }

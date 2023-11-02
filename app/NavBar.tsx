@@ -81,20 +81,6 @@ const NavBar = () => {
                 <Menu.Item>
                   {({ active }) => (
                     <Link
-                      href="/settings"
-                      className={clsx(
-                        "flex items-center px-8 py-4 text-gray-600 dark:text-gray-200",
-                        active && "bg-blue-600 dark:bg-blue-500 text-white"
-                      )}
-                    >
-                      <Cog6ToothIcon className="w-6 h-6 mr-6" />
-                      Settings
-                    </Link>
-                  )}
-                </Menu.Item>
-                <Menu.Item>
-                  {({ active }) => (
-                    <Link
                       href="/compliment"
                       className={clsx(
                         "flex items-center px-8 py-4 text-gray-600 dark:text-gray-200",
@@ -103,6 +89,20 @@ const NavBar = () => {
                     >
                       <Cog6ToothIcon className="w-6 h-6 mr-6" />
                       Compliment
+                    </Link>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link
+                      href="/settings"
+                      className={clsx(
+                        "flex items-center px-8 py-4 text-gray-600 dark:text-gray-200",
+                        active && "bg-blue-600 dark:bg-blue-500 text-white"
+                      )}
+                    >
+                      <Cog6ToothIcon className="w-6 h-6 mr-6" />
+                      Settings
                     </Link>
                   )}
                 </Menu.Item>

@@ -1,6 +1,7 @@
 import { Bases } from "@/types";
 import { converter } from "./converter";
 import { convertToDec } from "./convertToDec";
+import { paddZeros } from "./padZeros";
 
 export function findCompliment(
   isOnes: boolean,
@@ -29,20 +30,4 @@ export function findCompliment(
     }
   }
   return "1";
-}
-
-function paddZeros(output: string, outputBase: Bases, noOfBits: number) {
-  if (outputBase === "bin") {
-    while (output.length < noOfBits) {
-      output = "0" + output;
-    }
-    return output;
-  }
-  if (outputBase === "oct") {
-    return output;
-  }
-  if (outputBase === "hex") {
-    return output;
-  }
-  return output;
 }

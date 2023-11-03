@@ -126,9 +126,10 @@ const Form = () => {
         <Button variant="calculator">Solve</Button>
       </form>
       <Result
+        result={result}
+        setResult={setResult}
         settings={settings}
         handleClickingOnClipboard={handleClick}
-        result={result}
       />
       <Toast
         state={showStatus}

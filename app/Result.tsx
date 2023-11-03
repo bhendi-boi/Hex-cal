@@ -1,15 +1,24 @@
-import { UserSettings } from "@/types";
-import { ClipboardIcon } from "@heroicons/react/24/outline";
-import React from "react";
 import ToolTip from "./ToolTip";
+import { UserSettings } from "@/types";
+import { Dispatch, SetStateAction } from "react";
+import { ClipboardIcon } from "@heroicons/react/24/outline";
+import clsx from "clsx";
 
 type Props = {
   result: string;
+  setResult: Dispatch<SetStateAction<string>>;
   handleClickingOnClipboard: () => void;
   settings: UserSettings;
 };
 
-const Result = ({ result, handleClickingOnClipboard, settings }: Props) => {
+const Result = ({
+  result,
+  setResult,
+  handleClickingOnClipboard,
+  settings,
+}: Props) => {
+  function handleClick() {}
+
   return (
     <section aria-labelledby="result" className="">
       <header className="flex items-center justify-between">
@@ -28,7 +37,14 @@ const Result = ({ result, handleClickingOnClipboard, settings }: Props) => {
       </header>
       {result && (
         <div className="flex items-center gap-4">
-          <p className="font-mono text-xl font-medium uppercase text-subheadingText dark:text-darkSubheadingText">
+          <p
+            onClick={handleClick}
+            className={clsx(
+              "font-mono text-xl font-medium uppercase text-subheadingText dark:text-darkSubheadingText",
+              !settings.changePrefix && "pointer-events-none",
+              settings.changePrefix && "cursor-pointer"
+            )}
+          >
             {result}
           </p>
           <ToolTip info="Click on the result to change it's format/prefix" />

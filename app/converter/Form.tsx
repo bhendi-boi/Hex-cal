@@ -102,9 +102,10 @@ const Form = () => {
         </Button>
       </form>
       <Result
-        settings={settings}
-        handleClickingOnClipboard={handleClick}
         result={result}
+        setResult={setResult}
+        handleClickingOnClipboard={handleClick}
+        settings={settings}
       />
       <Toast
         state={showStatus}

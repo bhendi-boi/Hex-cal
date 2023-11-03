@@ -10,10 +10,11 @@ const DEFAULT_SETTINGS: UserSettings = {
   allowNegativeNumbers: false,
   darkMode: false,
   showFullText: false,
-  addPrefixToResult: false,
   defaultOperand1Base: "hex",
   defaultOperand2Base: "hex",
   defaultOperation: "add",
+  addPrefixToResult: false,
+  changePrefix: false,
 };
 
 export function useSettings() {

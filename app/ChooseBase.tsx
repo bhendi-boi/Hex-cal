@@ -115,7 +115,7 @@ export default function ChooseBase(props: Props) {
                 swapBases(state, setState, otherState, setOtherState)
               }
             >
-              <ArrowsUpDownIcon className="w-6 h-6" />
+              <ArrowsUpDownIcon className="w-6 h-6 shrink-0" />
             </Button>
           )}
         </div>

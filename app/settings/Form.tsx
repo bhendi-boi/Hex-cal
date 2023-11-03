@@ -55,8 +55,8 @@ const Form = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="py-4 space-y-4 px-2">
-        <fieldset className="">
+      <form onSubmit={handleSubmit} className="px-2 py-4">
+        <fieldset className="my-4">
           <StyledLegend>All</StyledLegend>
           <div className="flex items-center justify-between gap-1 my-2">
             <p>Show copy to clipboard</p>
@@ -74,7 +74,7 @@ const Form = () => {
               setEnabled={setDarkMode}
             />
           </div>
-          <div className="flex items-center justify-between gap-1 mb-2">
+          <div className="flex items-center justify-between gap-1 my-2">
             <p>Add prefix to result</p>
             <Switch
               srText="Allow negative numbers"
@@ -82,7 +82,7 @@ const Form = () => {
               setEnabled={setAddPrefixToResult}
             />
           </div>
-          <div className="flex items-center justify-between gap-1">
+          <div className="flex items-center justify-between gap-1 my-2">
             <p>Allow the use of negative numbers</p>
             <Switch
               srText="Allow negative numbers"
@@ -99,7 +99,7 @@ const Form = () => {
             />
           </div>
         </fieldset>
-        <div className="">
+        <div className="my-4">
           <StyledLegend>Calculator</StyledLegend>
           <ChooseBase
             variant="single"
@@ -121,7 +121,7 @@ const Form = () => {
             setState={setDefaultOperation}
           />
         </div>
-        <div className="">
+        <div className="my-4">
           <StyledLegend>Converter</StyledLegend>
           <ChooseBase
             variant="double"
@@ -142,7 +142,7 @@ const Form = () => {
             setOtherState={setDefaultFrom}
           />
         </div>
-        <Button type="submit" variant="converter">
+        <Button type="submit" variant="converter" className="my-8">
           Save Changes
         </Button>
       </form>

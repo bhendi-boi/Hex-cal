@@ -50,6 +50,7 @@ const Form = () => {
       showCopyToClipboard,
       allowNegativeNumbers,
       addPrefixToResult,
+      changePrefix,
     });
     setShowStatus(true);
   }

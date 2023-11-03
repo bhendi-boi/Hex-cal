@@ -21,7 +21,7 @@ const Button = ({ children, className, variant, ...rest }: Props) => {
           variant === "filled" &&
             "block w-full py-3 font-medium bg-blue-600 rounded-md text-gray-50 hover:bg-blue-500 active:bg-blue-600 max-w-xs",
           variant === "swap" &&
-            "relative p-2 overflow-hidden rounded-full hover:bg-gray-200 active:bg-gray-300  text-headingText dark:text-darkHeadingText dark:hover:text-headingText transition-colors"
+            "relative p-2  overflow-hidden rounded-full text-center shrink-0 w-10 h-10 inline-flex justify-center items-center hover:bg-gray-200 active:bg-gray-300  text-headingText dark:text-darkHeadingText dark:hover:text-headingText transition-colors "
         ),
         className
       )}

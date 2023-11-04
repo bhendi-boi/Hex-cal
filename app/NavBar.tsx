@@ -13,7 +13,7 @@ import clsx from "clsx";
 
 const NavBar = () => {
   return (
-    <Menu as="nav" className="relative">
+    <Menu as="div" className="relative">
       {({ open }) => (
         <>
           <Menu.Button
@@ -22,10 +22,19 @@ const NavBar = () => {
           >
             <Bars2Icon className="w-6 h-6" />
           </Menu.Button>
+          <nav
+            aria-hidden={open}
+            className={clsx(open && "hidden", !open && "sr-only")}
+          >
+            <a href="/converter">Converter</a>
+            <a href="/calculator">Calculator</a>
+            <a href="/compliment">Compliment</a>
+            <a href="/settings">Settings</a>
+          </nav>
           {open && (
             <AnimatePresence mode="wait">
               <Menu.Items
-                as={motion.div}
+                as={motion.nav}
                 initial={{ scale: 0.9, opacity: 0, y: "-70%" }}
                 animate={{ scale: 1, opacity: 1, y: 0 }}
                 exit={{ scale: 0.9, opacity: 0, y: "-70%" }}

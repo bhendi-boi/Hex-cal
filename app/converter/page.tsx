@@ -4,12 +4,16 @@ import InnerHeader from "../InnerHeader";
 
 export const metadata: Metadata = {
   title: "Converter | Hex Cal",
-  description:
-    "Convert numbers between binary, octal, hexadecimal, and decimal bases with ease using our Hex Calculator app. Whether you need to convert a binary representation to hexadecimal, octal to decimal, or any other combination, our tool provides a seamless conversion experience. Simply enter your number in the input field, choose the source base, and select the desired target base. Our Hex Calculator instantly displays the converted result, making it convenient for developers, students, and anyone working with number systems. Simplify your numeric conversions today!",
+  description: `Converter for 4 number systems (hex, oct, bin, dec)
+Convert any number from decimal, hexadecimal, octal, or binary to any other number system.
+Quickly and easily convert numbers for programming, math, and other tasks.
+Get accurate and consistent results every timeSimplify your numeric conversions today!`,
   openGraph: {
     title: "Converter | Hex Cal",
-    description:
-      "Convert numbers between binary, octal, hexadecimal, and decimal bases with ease",
+    description: `Converter for 4 number systems (hex, oct, bin, dec)
+Convert any number from decimal, hexadecimal, octal, or binary to any other number system.
+Quickly and easily convert numbers for programming, math, and other tasks.
+Get accurate and consistent results every timeSimplify your numeric conversions today!`,
     type: "website",
     url: "https://hex-cal.vercel.app/converter",
   },
@@ -17,7 +21,7 @@ export const metadata: Metadata = {
 
 const page = () => {
   return (
-    <div className="max-w-xl p-6 mx-auto pb-16">
+    <div className="max-w-xl p-6 pb-16 mx-auto">
       <InnerHeader title="Converter" />
       <Form />
     </div>

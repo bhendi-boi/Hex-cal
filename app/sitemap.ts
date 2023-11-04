@@ -15,6 +15,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
     },
     {
+      url: "https://hex-cal.vercel.app/compliment",
+      lastModified: new Date(),
+    },
+    {
       url: "https://hex-cal.vercel.app/settings",
       lastModified: new Date(),
     },

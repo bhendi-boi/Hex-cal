@@ -13,7 +13,7 @@ import clsx from "clsx";
 
 const NavBar = () => {
   return (
-    <Menu as="div" className="relative">
+    <Menu as="nav" className="relative">
       {({ open }) => (
         <>
           <Menu.Button

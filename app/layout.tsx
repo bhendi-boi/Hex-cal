@@ -8,12 +8,12 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Hex Cal",
-  description:
-    "A calculator specifically designed for doing arithmetic with hex numbers.",
+  description: `A powerful and versatile calculator for decimal, hexadecimal, octal, and binary number systems.
+    Convert numbers easily, find ones and twos complement, and customize the calculator to your needs`,
   openGraph: {
     title: "Hex cal",
-    description:
-      "A calculator specifically designed for doing arithmetic with hex numbers.",
+    description: `A powerful and versatile calculator for decimal, hexadecimal, octal, and binary number systems.
+    Convert numbers easily, find ones and twos complement, and customize the calculator to your needs`,
     type: "website",
     url: "https://hex-cal.vercel.app/",
   },

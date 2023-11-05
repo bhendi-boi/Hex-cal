@@ -34,6 +34,7 @@ const Form = () => {
   const [addPrefixToResult, setAddPrefixToResult] = useState(
     settings.addPrefixToResult
   );
+  const [changePrefix, setChangePrefix] = useState(settings.changePrefix);
   const [showStatus, setShowStatus] = useState(false);
 
   function handleSubmit(e: FormEvent) {
@@ -49,6 +50,7 @@ const Form = () => {
       showCopyToClipboard,
       allowNegativeNumbers,
       addPrefixToResult,
+      changePrefix,
     });
     setShowStatus(true);
   }
@@ -75,14 +77,6 @@ const Form = () => {
             />
           </div>
           <div className="flex items-center justify-between gap-1 my-2">
-            <p>Add prefix to result</p>
-            <Switch
-              srText="Allow negative numbers"
-              enabled={addPrefixToResult}
-              setEnabled={setAddPrefixToResult}
-            />
-          </div>
-          <div className="flex items-center justify-between gap-1 my-2">
             <p>Allow the use of negative numbers</p>
             <Switch
               srText="Allow negative numbers"
@@ -90,12 +84,28 @@ const Form = () => {
               setEnabled={setAllowNegativeNumbers}
             />
           </div>
-          <div className="flex items-center justify-between gap-1">
+          <div className="flex items-center justify-between gap-1 my-2">
             <p>Show full text in while choosing base and operation</p>
             <Switch
               srText="Show full text in while choosing base and operation"
               enabled={showFullText}
               setEnabled={setShowFullText}
+            />
+          </div>
+          <div className="flex items-center justify-between gap-1 my-2">
+            <p>Add prefix to result</p>
+            <Switch
+              srText="Allow negative numbers"
+              enabled={addPrefixToResult}
+              setEnabled={setAddPrefixToResult}
+            />
+          </div>
+          <div className="flex items-center justify-between gap-1">
+            <p>Change prefix after a result is found ?</p>
+            <Switch
+              srText="Change prefix after a result is found ?"
+              enabled={changePrefix}
+              setEnabled={setChangePrefix}
             />
           </div>
         </fieldset>

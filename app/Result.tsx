@@ -1,15 +1,27 @@
-import { UserSettings } from "@/types";
-import { ClipboardIcon } from "@heroicons/react/24/outline";
-import React from "react";
 import ToolTip from "./ToolTip";
+import { UserSettings } from "@/types";
+import { Dispatch, SetStateAction } from "react";
+import { ClipboardIcon } from "@heroicons/react/24/outline";
+import clsx from "clsx";
+import { changePrefix } from "@/lib/changePrefix";
 
 type Props = {
   result: string;
-  handleClick: () => void;
+  setResult: Dispatch<SetStateAction<string>>;
+  handleClickingOnClipboard: () => void;
   settings: UserSettings;
 };
 
-const Result = ({ result, handleClick, settings }: Props) => {
+const Result = ({
+  result,
+  setResult,
+  handleClickingOnClipboard,
+  settings,
+}: Props) => {
+  function handleClick(e: React.MouseEvent) {
+    setResult(changePrefix(e.currentTarget.innerHTML));
+  }
+
   return (
     <section aria-labelledby="result" className="">
       <header className="flex items-center justify-between">
@@ -19,7 +31,7 @@ const Result = ({ result, handleClick, settings }: Props) => {
         {settings.showCopyToClipboard && (
           <button
             title="Copy result to clipboard"
-            onClick={handleClick}
+            onClick={handleClickingOnClipboard}
             className="p-2 rounded-full cursor-pointer hover:bg-gray-100 active:bg-gray-200 dark:active:bg-gray-400 dark:hover:bg-gray-300"
           >
             <ClipboardIcon className="w-6 h-6 text-headingText dark:text-darkHeadingText" />
@@ -27,8 +39,15 @@ const Result = ({ result, handleClick, settings }: Props) => {
         )}
       </header>
       {result && (
-        <div className="flex gap-4 items-center">
-          <p className="text-subheadingText dark:text-darkSubheadingText text-xl font-medium uppercase font-mono">
+        <div className="flex items-center gap-4">
+          <p
+            onClick={handleClick}
+            className={clsx(
+              "font-mono text-xl font-medium  text-subheadingText dark:text-darkSubheadingText",
+              !settings.changePrefix && "pointer-events-none",
+              settings.changePrefix && "cursor-pointer"
+            )}
+          >
             {result}
           </p>
           <ToolTip info="Click on the result to change it's format/prefix" />

@@ -101,7 +101,12 @@ const Form = () => {
           Convert
         </Button>
       </form>
-      <Result settings={settings} handleClick={handleClick} result={result} />
+      <Result
+        result={result}
+        setResult={setResult}
+        handleClickingOnClipboard={handleClick}
+        settings={settings}
+      />
       <Toast
         state={showStatus}
         setState={setShowStatus}

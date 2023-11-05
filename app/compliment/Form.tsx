@@ -107,7 +107,12 @@ const Form = () => {
         </div>
         <Button variant="calculator">Compute </Button>
       </form>
-      <Result settings={settings} handleClick={handleClick} result={result} />
+      <Result
+        result={result}
+        setResult={setResult}
+        settings={settings}
+        handleClickingOnClipboard={handleClick}
+      />
       <Toast
         state={showStatus}
         setState={setShowStatus}

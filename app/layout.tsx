@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "Hex Cal",
   description: `A powerful and versatile calculator for decimal, hexadecimal, octal, and binary number systems.
     Convert numbers easily, find ones and twos complement, and customize the calculator to your needs`,
+  metadataBase: new URL("https://hex-cal.vercel.app/"),
   openGraph: {
     title: "Hex cal",
     description: `A powerful and versatile calculator for decimal, hexadecimal, octal, and binary number systems.

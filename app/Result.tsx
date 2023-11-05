@@ -3,6 +3,7 @@ import { UserSettings } from "@/types";
 import { Dispatch, SetStateAction } from "react";
 import { ClipboardIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
+import { changePrefix } from "@/lib/changePrefix";
 
 type Props = {
   result: string;
@@ -17,7 +18,9 @@ const Result = ({
   handleClickingOnClipboard,
   settings,
 }: Props) => {
-  function handleClick() {}
+  function handleClick(e: React.MouseEvent) {
+    setResult(changePrefix(e.currentTarget.innerHTML));
+  }
 
   return (
     <section aria-labelledby="result" className="">
@@ -40,7 +43,7 @@ const Result = ({
           <p
             onClick={handleClick}
             className={clsx(
-              "font-mono text-xl font-medium uppercase text-subheadingText dark:text-darkSubheadingText",
+              "font-mono text-xl font-medium  text-subheadingText dark:text-darkSubheadingText",
               !settings.changePrefix && "pointer-events-none",
               settings.changePrefix && "cursor-pointer"
             )}

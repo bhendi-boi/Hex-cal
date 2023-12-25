@@ -118,11 +118,7 @@ const Form = () => {
             onChange={(e) => handleChange(e)}
           />
         </div>
-        <Button
-          variant="converter"
-          type="submit"
-          className="w-full py-3 my-4 text-2xl font-medium text-white bg-green-600 rounded-md"
-        >
+        <Button variant="converter" type="submit">
           Convert
         </Button>
       </form>

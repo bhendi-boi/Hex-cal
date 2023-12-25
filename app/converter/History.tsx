@@ -1,29 +1,32 @@
-import { Popover } from "@headlessui/react";
+import * as Dialog from "@radix-ui/react-dialog";
 import { motion } from "framer-motion";
 import { useHistory } from "@/hooks/useHistory";
 import { ConverterHistoryItem } from "@/types";
 const History = ({ toggleShowHistory }: { toggleShowHistory: () => void }) => {
   const [converterHistory] = useHistory();
   return (
-    <Popover.Panel className="fixed inset-0 z-50 isolate">
-      <Popover.Overlay
+    <Dialog.Portal>
+      <Dialog.Overlay
         aria-hidden
         onClick={toggleShowHistory}
-        className="fixed inset-0 bg-black/40"
+        className="fixed inset-0 z-10 bg-black/40"
       />
-      <motion.div
-        initial={{ top: "100%" }}
-        animate={{ top: "33%" }}
-        className="fixed left-0 w-full overflow-y-scroll bg-white"
-      >
-        {converterHistory.length === 0 && <div>No previous results</div>}
-        <ul className="relative py-8 space-y-4">
-          {converterHistory.map((item: ConverterHistoryItem, index) => {
-            return <StyledLi key={index} item={item} />;
-          })}
-        </ul>
-      </motion.div>
-    </Popover.Panel>
+      <Dialog.Content asChild>
+        <motion.div
+          initial={{ top: "100%" }}
+          animate={{ top: "33%" }}
+          transition={{ damping: 20 }}
+          className="fixed left-0 z-10 w-full overflow-y-scroll bg-white"
+        >
+          {converterHistory.length === 0 && <div>No previous results</div>}
+          <ul className="relative py-8 space-y-4">
+            {converterHistory.map((item: ConverterHistoryItem, index) => {
+              return <StyledLi key={index} item={item} />;
+            })}
+          </ul>
+        </motion.div>
+      </Dialog.Content>
+    </Dialog.Portal>
   );
 };
 

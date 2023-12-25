@@ -9,7 +9,7 @@ const Header = () => {
   const pathname = usePathname();
   const router = useRouter();
   return (
-    <header className="sticky top-0 z-50 h-16 px-4 bg-headerBackground dark:bg-darkHeaderBackground">
+    <header className="sticky top-0 z-10 h-16 px-4 bg-headerBackground dark:bg-darkHeaderBackground">
       {/* added mx-2 to compensate p-2 class on button */}
       <div className="flex items-center justify-between h-16 max-w-xl mx-auto">
         {pathname !== "/" ? (

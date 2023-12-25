@@ -1,6 +1,6 @@
 "use client";
 import { useState, ChangeEvent, FormEvent, useEffect } from "react";
-import { Popover } from "@headlessui/react";
+import * as Dialog from "@radix-ui/react-dialog";
 import Input from "../Input";
 import Button from "../Button";
 import Toast from "../Toast";
@@ -122,7 +122,7 @@ const Form = () => {
           Convert
         </Button>
       </form>
-      <Popover className="overflow-y-auto">
+      <Dialog.Root>
         {result !== undefined && (
           <section aria-labelledby="result" className="px-2">
             <header className="flex items-center justify-between">
@@ -130,12 +130,12 @@ const Form = () => {
                 Result
               </h2>
               <div>
-                <Popover.Button
+                <Dialog.Trigger
                   onClick={toggleShowHistory}
                   className="p-2 rounded-full cursor-pointer hover:bg-gray-100 active:bg-gray-200"
                 >
                   <ClockIcon className="w-6 h-6 text-gray-950" />
-                </Popover.Button>
+                </Dialog.Trigger>
                 {settings.showCopyToClipboard && (
                   <button
                     onClick={handleClick}
@@ -150,7 +150,7 @@ const Form = () => {
           </section>
         )}
         <History toggleShowHistory={toggleShowHistory} />
-      </Popover>
+      </Dialog.Root>
       <Toast
         state={showStatus}
         setState={setShowStatus}

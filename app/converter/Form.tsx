@@ -155,13 +155,6 @@ const Form = () => {
         )}
         <History toggleShowHistory={toggleShowHistory} />
       </Popover>
-
-      <Result
-        result={result}
-        setResult={setResult}
-        handleClickingOnClipboard={handleClick}
-        settings={settings}
-      />
       <Toast
         state={showStatus}
         setState={setShowStatus}

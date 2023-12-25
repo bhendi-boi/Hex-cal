@@ -22,10 +22,19 @@ const NavBar = () => {
           >
             <Bars2Icon className="w-6 h-6" />
           </Menu.Button>
+          <nav
+            aria-hidden={open}
+            className={clsx(open && "hidden", !open && "sr-only")}
+          >
+            <a href="/converter">Converter</a>
+            <a href="/calculator">Calculator</a>
+            <a href="/compliment">Compliment</a>
+            <a href="/settings">Settings</a>
+          </nav>
           {open && (
             <AnimatePresence mode="wait">
               <Menu.Items
-                as={motion.div}
+                as={motion.nav}
                 initial={{ scale: 0.9, opacity: 0, y: "-70%" }}
                 animate={{ scale: 1, opacity: 1, y: 0 }}
                 exit={{ scale: 0.9, opacity: 0, y: "-70%" }}
@@ -75,6 +84,20 @@ const NavBar = () => {
                     >
                       <ArrowsUpDownIcon className="w-6 h-6 mr-6 rotate-90" />
                       Converter
+                    </Link>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link
+                      href="/compliment"
+                      className={clsx(
+                        "flex items-center px-8 py-4 text-gray-600 dark:text-gray-200",
+                        active && "bg-blue-600 dark:bg-blue-500 text-white"
+                      )}
+                    >
+                      <Cog6ToothIcon className="w-6 h-6 mr-6" />
+                      Compliment
                     </Link>
                   )}
                 </Menu.Item>

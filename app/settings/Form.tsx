@@ -34,6 +34,7 @@ const Form = () => {
   const [addPrefixToResult, setAddPrefixToResult] = useState(
     settings.addPrefixToResult
   );
+  const [changePrefix, setChangePrefix] = useState(settings.changePrefix);
   const [showStatus, setShowStatus] = useState(false);
 
   function handleSubmit(e: FormEvent) {
@@ -49,14 +50,15 @@ const Form = () => {
       showCopyToClipboard,
       allowNegativeNumbers,
       addPrefixToResult,
+      changePrefix,
     });
     setShowStatus(true);
   }
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="py-4 space-y-4">
-        <fieldset className="px-2">
+      <form onSubmit={handleSubmit} className="px-2 py-4">
+        <fieldset className="my-4">
           <StyledLegend>All</StyledLegend>
           <div className="flex items-center justify-between gap-1 my-2">
             <p>Show copy to clipboard</p>
@@ -74,7 +76,23 @@ const Form = () => {
               setEnabled={setDarkMode}
             />
           </div>
-          <div className="flex items-center justify-between gap-1 mb-2">
+          <div className="flex items-center justify-between gap-1 my-2">
+            <p>Allow the use of negative numbers</p>
+            <Switch
+              srText="Allow negative numbers"
+              enabled={allowNegativeNumbers}
+              setEnabled={setAllowNegativeNumbers}
+            />
+          </div>
+          <div className="flex items-center justify-between gap-1 my-2">
+            <p>Show full text in while choosing base and operation</p>
+            <Switch
+              srText="Show full text in while choosing base and operation"
+              enabled={showFullText}
+              setEnabled={setShowFullText}
+            />
+          </div>
+          <div className="flex items-center justify-between gap-1 my-2">
             <p>Add prefix to result</p>
             <Switch
               srText="Allow negative numbers"
@@ -83,23 +101,15 @@ const Form = () => {
             />
           </div>
           <div className="flex items-center justify-between gap-1">
-            <p>Allow the use of negative numbers</p>
+            <p>Change prefix after a result is found ?</p>
             <Switch
-              srText="Allow negative numbers"
-              enabled={allowNegativeNumbers}
-              setEnabled={setAllowNegativeNumbers}
-            />
-          </div>
-          <div className="flex items-center justify-between gap-1">
-            <p>Show full text in while choosing base and operation</p>
-            <Switch
-              srText="Show full text in while choosing base and operation"
-              enabled={showFullText}
-              setEnabled={setShowFullText}
+              srText="Change prefix after a result is found ?"
+              enabled={changePrefix}
+              setEnabled={setChangePrefix}
             />
           </div>
         </fieldset>
-        <div className="px-2">
+        <div className="my-4">
           <StyledLegend>Calculator</StyledLegend>
           <ChooseBase
             variant="single"
@@ -121,7 +131,7 @@ const Form = () => {
             setState={setDefaultOperation}
           />
         </div>
-        <div className="px-2">
+        <div className="my-4">
           <StyledLegend>Converter</StyledLegend>
           <ChooseBase
             variant="double"
@@ -142,7 +152,7 @@ const Form = () => {
             setOtherState={setDefaultFrom}
           />
         </div>
-        <Button type="submit" variant="converter">
+        <Button type="submit" variant="converter" className="my-8">
           Save Changes
         </Button>
       </form>

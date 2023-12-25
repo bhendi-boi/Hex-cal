@@ -12,7 +12,7 @@ export function generateRegex(base: Bases): {
       return { pattern: "^[0-7]+$", inputMode: "numeric" };
     }
     case "dec": {
-      return { pattern: "^[0-9]+$", inputMode: "decimal" };
+      return { pattern: "^-?[0-9]+$", inputMode: "decimal" };
     }
     case "hex": {
       return { pattern: "^[0-9A-Fa-f]+$", inputMode: "text" };

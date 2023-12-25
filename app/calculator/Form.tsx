@@ -3,9 +3,9 @@ import React, { useState, ChangeEvent, FormEvent } from "react";
 import Toast from "../Toast";
 import Input from "../Input";
 import Button from "../Button";
+import Result from "../Result";
 import ChooseBase from "../ChooseBase";
 import ChooseOperation from "../ChooseOperation";
-import { ClipboardIcon } from "@heroicons/react/24/outline";
 import { converter } from "@/lib/converter";
 import { useSettings } from "@/hooks/useSettings";
 import { generateRegex } from "@/lib/generateRegex";
@@ -42,7 +42,7 @@ const Form = () => {
       return input.replace(/[^0-7]/g, "");
     }
     if (operand1Base === "dec") {
-      return input.replace(/[^0-9]/g, "");
+      return input.replace(/[^0-9-]/g, "");
     }
     if (operand1Base === "hex") {
       return input.replace(/[^0-9A-Fa-f]/g, "");
@@ -79,7 +79,7 @@ const Form = () => {
   }
   return (
     <>
-      <form onSubmit={handleSubmit} className="px-2">
+      <form onSubmit={handleSubmit} className="">
         <div className="pb-4">
           <ChooseBase
             variant="single"
@@ -125,27 +125,12 @@ const Form = () => {
         </div>
         <Button variant="calculator">Solve</Button>
       </form>
-      {result !== undefined && (
-        <section aria-labelledby="result" className="px-2">
-          <header className="flex items-center justify-between">
-            <h2 id="result" className="text-xl font-medium">
-              Result
-            </h2>
-            {settings.showCopyToClipboard && (
-              <button
-                title="Copy result to clipboard"
-                onClick={handleClick}
-                className="p-2 rounded-full cursor-pointer hover:bg-gray-100 active:bg-gray-200 text-headingText dark:text-darkHeadingText"
-              >
-                <ClipboardIcon className="w-6 h-6" />
-              </button>
-            )}
-          </header>
-          <p className="text-subheadingText dark:text-darkSubheadingText">
-            {result}
-          </p>
-        </section>
-      )}
+      <Result
+        result={result}
+        setResult={setResult}
+        settings={settings}
+        handleClickingOnClipboard={handleClick}
+      />
       <Toast
         state={showStatus}
         setState={setShowStatus}

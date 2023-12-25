@@ -4,13 +4,13 @@ import { Popover } from "@headlessui/react";
 import Input from "../Input";
 import Button from "../Button";
 import Toast from "../Toast";
+import Result from "../Result";
 import ChooseBase from "../ChooseBase";
 import { ClipboardIcon, ClockIcon } from "@heroicons/react/24/outline";
 import { useSettings } from "@/hooks/useSettings";
 import { useHistory } from "@/hooks/useHistory";
 import { generateRegex } from "@/lib/generateRegex";
 import { converter } from "@/lib/converter";
-import { swapBases } from "@/lib/swapBases";
 import { copyToClipboard } from "@/lib/copyToClipboard";
 import { Bases, InputModeTypes } from "@/types";
 import { addPrefix } from "@/lib/addPrefix";
@@ -85,7 +85,7 @@ const Form = () => {
 
   return (
     <>
-      <form onSubmit={(e) => handleSubmit(e)} className="px-2">
+      <form onSubmit={(e) => handleSubmit(e)} className="">
         <ChooseBase
           variant="double"
           label="From"
@@ -156,6 +156,12 @@ const Form = () => {
         <History toggleShowHistory={toggleShowHistory} />
       </Popover>
 
+      <Result
+        result={result}
+        setResult={setResult}
+        handleClickingOnClipboard={handleClick}
+        settings={settings}
+      />
       <Toast
         state={showStatus}
         setState={setShowStatus}

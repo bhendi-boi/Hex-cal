@@ -154,7 +154,10 @@ const Form = () => {
       <Toast
         state={showStatus}
         setState={setShowStatus}
-        message="Result copied to clipboard 😉"
+        message={
+          result ? "Result copied to clipboard 😉" : "Noting to copy here"
+        }
+        messageType={result ? "info" : "warning"}
       />
     </>
   );

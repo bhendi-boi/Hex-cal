@@ -36,5 +36,10 @@ export function useHistory() {
       return [...prev];
     });
   }
-  return [converterHistory, updateConverterHistory] as const;
+
+  function clearHistory() {
+    setConverterHistory([]);
+  }
+
+  return [converterHistory, updateConverterHistory, clearHistory] as const;
 }

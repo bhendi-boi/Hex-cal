@@ -4,7 +4,13 @@ import { twMerge } from "tailwind-merge";
 
 type Props = {
   children: ReactNode;
-  variant: "converter" | "calculator" | "filled" | "outline" | "swap";
+  variant:
+    | "converter"
+    | "calculator"
+    | "filled"
+    | "outline"
+    | "swap"
+    | "danger";
 } & ComponentProps<"button">;
 
 const Button = ({ children, className, variant, ...rest }: Props) => {
@@ -21,7 +27,9 @@ const Button = ({ children, className, variant, ...rest }: Props) => {
           variant === "filled" &&
             "block w-full py-3 font-medium bg-blue-600 rounded-md text-gray-50 hover:bg-blue-500 active:bg-blue-600 max-w-xs",
           variant === "swap" &&
-            "relative p-2  overflow-hidden rounded-full text-center shrink-0 w-10 h-10 inline-flex justify-center items-center hover:bg-gray-200 active:bg-gray-300  text-headingText dark:text-darkHeadingText dark:hover:text-headingText transition-colors "
+            "relative p-2  overflow-hidden rounded-full text-center shrink-0 w-10 h-10 inline-flex justify-center items-center hover:bg-gray-200 active:bg-gray-300  text-headingText dark:text-darkHeadingText dark:hover:text-headingText transition-colors ",
+          variant === "danger" &&
+            "py-1 font-medium bg-red-600 text-white px-3 rounded-md transition-colors active:bg-red-600 hover:bg-red-500"
         ),
         className
       )}
